@@ -289,6 +289,7 @@
     var showFloats = y > vh * 0.600;
     if (fab) fab.classList.toggle('is-visible', showFloats);
     if (mobileBar) mobileBar.classList.toggle('is-visible', showFloats);
+    if (themer) themer.classList.toggle('is-tucked', showFloats);
 
     parallaxEls.forEach(function (el) {
       var r = el.getBoundingClientRect();

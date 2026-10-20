@@ -20,9 +20,11 @@
   --bg: #FAF8F4;
   --surface: #FFFFFF;
   --text: #33484C;
-  --muted: #667A7E;
+  --muted: #5B6E72;        /* 4.5:1+ on --bg, --surface and --tint */
   --line: #E5E2DA;
-  --wa: #1FAF5A;
+  --placeholder: #74868A;
+  --wa: #1A9E50;           /* WhatsApp green for icons (3:1+ on light grounds) */
+  --wa-deep: #0E7A3E;      /* WhatsApp buttons: white text at 4.5:1+ */
 
   /* Type */
   --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
@@ -50,7 +52,7 @@
 
 /* ───────────────────────── 2. BASE ───────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 8px); -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 8px); -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -105,6 +107,9 @@ em { font-style: italic; }
 
 .section-head { display: grid; grid-template-columns: 1.150fr .85fr; gap: 32px 64px; align-items: end; margin-bottom: clamp(40px, 5vw, 68px); }
 .section-head__aside { color: var(--muted); max-width: 46ch; }
+/* grid columns may shrink below their content's width, so nothing forces a sideways scroll on small phones */
+.section-head > *, .hero__grid > *, .about__grid > *, .approach__grid > *, .results__grid > *,
+.journey__grid > *, .faq__grid > *, .book__grid > *, .band__grid > *, .footer__top > * { min-width: 0; }
 .section-head--center { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0; }
 
 /* ───────────────────────── 3. COMPONENTS ───────────────────────── */
@@ -124,7 +129,7 @@ em { font-style: italic; }
 .btn--primary { --btn-bg: var(--brand); }
 .btn--primary:hover { background: var(--brand-deep); }
 .btn--dark { --btn-bg: var(--ink); }
-.btn--accent { --btn-bg: var(--wa); }
+.btn--accent { --btn-bg: var(--wa-deep); }
 .btn--light { --btn-bg: #fff; --btn-fg: var(--ink); box-shadow: var(--shadow-sm); }
 .btn--ghost { --btn-bg: transparent; --btn-fg: var(--ink); border-color: color-mix(in srgb, var(--ink) 22%, transparent); }
 .btn--ghost:hover { border-color: var(--ink); box-shadow: none; }
@@ -173,9 +178,12 @@ em { font-style: italic; }
 /* ───────────────────────── 4. SECTIONS ───────────────────────── */
 
 /* Header */
-.header { position: fixed; inset: 0 0 auto 0; z-index: 100; transition: background .35s, box-shadow .35s, backdrop-filter .35s; }
+.header { position: fixed; inset: 0 0 auto 0; z-index: 100; }
+/* The frosted glass lives on its own layer: a backdrop-filter on .header itself
+   would trap the fixed mobile menu inside the header bar. */
+.header::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; pointer-events: none; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: saturate(1.400) blur(16px); -webkit-backdrop-filter: saturate(1.400) blur(16px); box-shadow: 0 1px 0 var(--line); transition: opacity .35s; }
 .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: var(--header-h); transition: height .35s var(--ease); }
-.header.is-scrolled { background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: saturate(1.400) blur(16px); -webkit-backdrop-filter: saturate(1.400) blur(16px); box-shadow: 0 1px 0 var(--line); }
+.header.is-scrolled::before { opacity: 1; }
 .header.is-scrolled .header__inner { height: 68px; }
 .nav { display: flex; align-items: center; gap: clamp(16px, 2.200vw, 34px); }
 .nav a:not(.btn) { position: relative; white-space: nowrap; font-size: .920rem; font-weight: 600; color: var(--ink); padding: 6px 0; }
@@ -436,7 +444,7 @@ html:not(.js) .faq__a { grid-template-rows: 1fr; }
 .contact-list { display: grid; gap: 22px; margin-top: 40px; }
 .contact-list li { display: flex; gap: 16px; align-items: flex-start; }
 .contact-list li > span { width: 46px; height: 46px; border-radius: 14px; background: rgba(255, 255, 255, .09); color: var(--accent); display: grid; place-items: center; font-size: 1.250rem; flex: none; }
-.contact-list small { display: block; font-size: .740rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 255, 255, .5); margin-bottom: 2px; }
+.contact-list small { display: block; font-size: .740rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 255, 255, .62); margin-bottom: 2px; }
 .contact-list a { color: #fff; font-weight: 600; font-size: 1.050rem; line-height: 1.450; transition: color .25s; }
 .contact-list a:hover { color: var(--accent); }
 .contact-list em { display: block; font-size: .860rem; color: rgba(255, 255, 255, .55); margin-top: 4px; }
@@ -463,7 +471,7 @@ html:not(.js) .faq__a { grid-template-rows: 1fr; }
 }
 .field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23667A7E' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; padding-right: 42px; }
 .field textarea { resize: vertical; min-height: 92px; }
-.field input::placeholder, .field textarea::placeholder { color: #9AA9AC; }
+.field input::placeholder, .field textarea::placeholder { color: var(--placeholder); }
 .field input:not([type="radio"]):focus, .field select:focus, .field textarea:focus { outline: 0; border-color: var(--brand); background: #fff; box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 16%, transparent); }
 .field.has-error input { border-color: #D2553F; box-shadow: 0 0 0 4px rgba(210, 85, 63, .12); }
 .chips { display: flex; gap: 6px; }
@@ -487,7 +495,7 @@ html:not(.js) .faq__a { grid-template-rows: 1fr; }
 .footer { background: var(--ink); color: rgba(255, 255, 255, .62); border-top: 1px solid rgba(255, 255, 255, .1); padding-top: clamp(56px, 7vw, 88px); overflow: hidden; }
 .footer__top { display: grid; grid-template-columns: 1.500fr 1fr 1fr 1.200fr; gap: 40px 48px; }
 .footer__brand p { margin: 20px 0 24px; max-width: 36ch; }
-.footer h4 { font-size: .760rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: rgba(255, 255, 255, .45); margin-bottom: 18px; }
+.footer h4 { font-size: .760rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: rgba(255, 255, 255, .6); margin-bottom: 18px; }
 .footer__top nav a, .footer__top > div:last-child a { display: block; padding: 5px 0; color: rgba(255, 255, 255, .82); transition: color .25s, transform .35s var(--ease); }
 .footer__top nav a:hover, .footer__top > div:last-child a:hover { color: var(--accent); transform: translateX(4px); }
 .footer__top > div:last-child p { margin-top: 10px; font-size: .920rem; }
@@ -500,7 +508,7 @@ html:not(.js) .faq__a { grid-template-rows: 1fr; }
 .footer__bottom a:hover { color: #fff; }
 
 /* Floating actions */
-.fab { position: fixed; right: 24px; bottom: 24px; z-index: 90; width: 60px; height: 60px; border-radius: 50%; background: var(--wa); color: #fff; display: grid; place-items: center; font-size: 2rem; box-shadow: 0 12px 30px rgba(31, 175, 90, .4); transform: scale(0); transition: transform .5s var(--ease); }
+.fab { position: fixed; right: 24px; bottom: 24px; z-index: 90; width: 60px; height: 60px; border-radius: 50%; background: var(--wa); color: #fff; display: grid; place-items: center; font-size: 2rem; box-shadow: 0 12px 30px rgba(26, 158, 80, .4); transform: scale(0); transition: transform .5s var(--ease); }
 .fab.is-visible { transform: scale(1); }
 .fab.is-visible:hover { transform: scale(1.080); }
 .fab::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--wa); animation: pulse 2.600s ease-out infinite; }
@@ -587,7 +595,11 @@ html:not(.js) .faq__a { grid-template-rows: 1fr; }
   .mobile-bar a:nth-child(2) svg { color: var(--wa); }
   .mobile-bar a.is-primary { background: var(--brand); border-color: var(--brand); color: #fff; }
   .footer { padding-bottom: 76px; }
-  .themer { left: auto; right: 10px; top: auto; bottom: 80px; translate: none; flex-direction: row; padding: 7px 9px; gap: 7px; }
+  /* sideways reveals would push past the screen edge on phones; slide up instead */
+  .js .reveal[data-reveal="left"], .js .reveal[data-reveal="right"] { transform: translateY(28px); }
+  .themer { left: auto; right: 10px; top: auto; bottom: 80px; translate: none; flex-direction: row; padding: 7px 9px; gap: 7px; transition: opacity .3s, visibility .3s; }
+  /* on phones the theme picker steps aside once the reader scrolls into the content */
+  .themer.is-tucked { opacity: 0; visibility: hidden; }
   .themer span { display: none; }
   .themer button { width: 18px; height: 18px; }
 }
@@ -620,6 +632,29 @@ html:not(.js) .faq__a { grid-template-rows: 1fr; }
   .doctor figure { aspect-ratio: auto; }
   .doctor figure img { aspect-ratio: 7 / 7.500; height: auto; }
   .footer__bottom a:first-child { margin-left: 0; }
+  .about__stamp { left: 6px; top: 18px; width: 88px; height: 88px; }
+  .about__stamp span { font-size: 1.700rem; }
+  /* 16px stops iOS Safari zooming the page when a field is tapped */
+  .field input:not([type="radio"]), .field select, .field textarea { font-size: 16px; }
+}
+
+@media (max-width: 420px) {
+  .hero__title { font-size: 12.400vw; }
+  .header__actions { gap: 8px; }
+  .lang__btn, .header__phone, .burger { width: 40px; height: 40px; }
+  .burger span:first-child { top: 15px; }
+  .burger span:last-child { top: 23px; }
+  .burger[aria-expanded="true"] span:first-child, .burger[aria-expanded="true"] span:last-child { top: 19px; }
+  .burger span { left: 11px; right: 11px; }
+  .logo { gap: 9px; }
+  .logo__mark { width: 38px; height: 38px; font-size: 21px; border-radius: 12px; }
+  .logo__text strong { font-size: 1.400rem; }
+}
+
+@media (max-width: 340px) {
+  .logo__text small { display: none; }
+  .mobile-bar { grid-template-columns: 1fr 1fr 1fr; gap: 6px; padding-inline: 8px; }
+  .mobile-bar a { font-size: .820rem; gap: 6px; }
 }
 
 @media (hover: none) {
