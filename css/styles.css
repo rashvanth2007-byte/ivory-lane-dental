@@ -758,6 +758,9 @@ html:not(.js) .faq__a { grid-template-rows: 1fr; }
 }
 .translated-ltr .btn { white-space: normal; text-align: center; }
 .translated-ltr .chips span { font-size: .74rem; }
+/* translated times ("காலை 9:30 மணி – இரவு 8:00 மணி") are much longer, so they may wrap under the day */
+.translated-ltr .hours li { flex-wrap: wrap; column-gap: 12px; row-gap: 2px; }
+.translated-ltr .hours li > span:last-child { white-space: normal; }
 .translated-ltr .float-card { max-width: 230px; }
 @media (max-width: 1100px) {
   .translated-ltr .nav a:not(.btn) { font-size: 1.1rem; line-height: 1.5; white-space: normal; }
