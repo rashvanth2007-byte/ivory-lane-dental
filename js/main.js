@@ -329,11 +329,14 @@
     nav.classList.toggle('is-open', open);
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    document.body.style.overflow = open ? 'hidden' : '';
   }
   if (burger && nav) {
     burger.addEventListener('click', function () { toggleMenu(!nav.classList.contains('is-open')); });
     nav.addEventListener('click', function (e) { if (e.target.closest('a')) toggleMenu(false); });
+    // the menu is a small dropdown, so a tap anywhere else closes it
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('is-open') && !nav.contains(e.target) && !burger.contains(e.target)) toggleMenu(false);
+    });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') toggleMenu(false); });
   }
 

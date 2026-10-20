@@ -561,15 +561,20 @@ html:not(.js) .faq__a { grid-template-rows: 1fr; }
   :root { --header-h: 72px; }
   .burger { display: block; z-index: 2; }
   .header__actions .btn { display: none; }
+  /* compact dropdown card under the menu button */
   .nav {
-    position: fixed; inset: 0; z-index: 1; flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px;
-    padding: 96px var(--gutter) 40px; background: var(--bg);
-    opacity: 0; visibility: hidden; transform: translateY(-12px); transition: opacity .4s var(--ease), transform .4s var(--ease), visibility .4s;
+    position: absolute; top: calc(100% + 6px); right: var(--gutter); z-index: 1;
+    width: min(270px, calc(100% - 2 * var(--gutter)));
+    flex-direction: column; align-items: stretch; gap: 2px;
+    padding: 10px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-lg);
+    opacity: 0; visibility: hidden; transform: translateY(-8px) scale(.97); transform-origin: top right;
+    transition: opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
   }
   .nav.is-open { opacity: 1; visibility: visible; transform: none; }
-  .nav a:not(.btn) { font-family: var(--font-display); font-size: 2.300rem; font-weight: 400; line-height: 1.250; }
+  .nav a:not(.btn) { font-family: var(--font-display); font-size: 1.400rem; font-weight: 400; line-height: 1.200; padding: 9px 14px; border-radius: 12px; transition: background .2s, color .2s; }
+  .nav a:not(.btn):hover, .nav a.is-active { background: var(--tint); color: var(--brand); }
   .nav a:not(.btn)::after { display: none; }
-  .nav__cta-mobile { display: inline-flex; margin-top: 24px; }
+  .nav__cta-mobile { display: inline-flex; margin-top: 8px; }
   .logo, .header__phone, .lang { position: relative; z-index: 2; }
   .header__actions { gap: 10px; }
 
@@ -696,7 +701,7 @@ html:not(.js) .faq__a { grid-template-rows: 1fr; }
 .translated-ltr .chips span { font-size: .74rem; }
 .translated-ltr .float-card { max-width: 230px; }
 @media (max-width: 900px) {
-  .translated-ltr .nav a:not(.btn) { font-size: 1.6rem; line-height: 1.5; }
+  .translated-ltr .nav a:not(.btn) { font-size: 1.1rem; line-height: 1.5; }
 }
 /* translated menu labels are much longer, so the header keeps only the essentials */
 .translated-ltr .header__actions > .btn { display: none; }
