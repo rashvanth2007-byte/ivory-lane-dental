@@ -76,6 +76,8 @@
     <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M3 12h18" fill="none" stroke="currentColor" stroke-width="1.500" stroke-linecap="round"/></symbol>
     <symbol id="i-feather" viewBox="0 0 24 24"><path d="M20 4c-7 0-12 4-12 10v3M4 20l4-3h5c4 0 7-5 7-13M8 14h6" fill="none" stroke="currentColor" stroke-width="1.500" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-rupee" viewBox="0 0 24 24"><path d="M7 5h10M7 9h10M7 5c6 0 6 8 0 8l7 7" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z" fill="currentColor"/></symbol>
     <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.5 4 5.5 4 9s-1.4 6.5-4 9c-2.6-2.5-4-5.5-4-9s1.4-6.5 4-9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
     <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.500" y="3.500" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.600"/><circle cx="12" cy="12" r="3.800" fill="none" stroke="currentColor" stroke-width="1.600"/><circle cx="17" cy="7" r="1" fill="currentColor"/></symbol>
     <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8.500V7c0-.8.500-1.200 1.200-1.200H17V2.500h-2.600C11.800 2.500 10.500 4.200 10.500 6.600v1.900H8V12h2.500v9.500H14V12h2.600l.4-3.500z" fill="currentColor"/></symbol>
@@ -162,11 +164,10 @@
       </div>
 
       <div class="hero__proof load-in" style="--d:6">
-        <div class="proof">
-          <div class="proof__stars" role="img" aria-label="Rated 4.9 out of 5">
-            <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
-          </div>
-          <p><strong>4.9</strong> rating on Google</p>
+        <!-- EDIT: keep this factual; ratings and testimonials are discouraged by the dental code of ethics -->
+        <div class="proof proof--reg">
+          <span class="proof__icon"><svg><use href="#i-shield"/></svg></span>
+          <p><strong>MDS specialists</strong>Registered with the Tamil Nadu Dental Council</p>
         </div>
         <span class="proof__rule" aria-hidden="true"></span>
         <ul class="proof__ticks">
@@ -212,8 +213,9 @@
 
 <!-- ═════════════════════════════ MARQUEE ═════════════════════════════ -->
 <!-- EDIT: scrolling list of treatments -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
+<div class="marquee">
+  <button type="button" class="marquee__toggle" data-motion-toggle aria-pressed="false" aria-label="Pause moving text"><svg class="i-pause"><use href="#i-pause"/></svg><svg class="i-play"><use href="#i-play"/></svg></button>
+  <div class="marquee__track" aria-hidden="true">
     <span>Dental Implants</span><i></i><span>Clear Aligners</span><i></i><span>Smile Designing &amp; Veneers</span><i></i>
     <span>Root Canal Treatment</span><i></i><span>Teeth Whitening</span><i></i><span>Kids Dentistry</span><i></i>
     <span>Crowns &amp; Bridges</span><i></i><span>Teeth Cleaning &amp; Gum Treatment</span><i></i>
@@ -255,7 +257,7 @@
       <dl class="stats reveal">
         <div><dt><span data-count="14">14</span>+</dt><dd>Years in practice</dd></div>
         <div><dt><span data-count="7">7</span></dt><dd>Days a week</dd></div>
-        <div><dt><span data-count="4.900" data-decimals="1">4.9</span><svg><use href="#i-star"/></svg></dt><dd>Google rating</dd></div>
+        <div><dt><span data-count="4">4</span></dt><dd>Treatment rooms</dd></div>
         <div><dt><span data-count="6">6</span></dt><dd>Specialist dentists (MDS)</dd></div>
       </dl>
     </div>
@@ -517,58 +519,20 @@
 </section>
 
 <!-- ═════════════════════════════ REVIEWS ═════════════════════════════ -->
+<!-- No testimonials or star ratings on the site: the dental code of ethics and the National Dental
+     Commission (October 2026) advise against them. The button links to the clinic's Google Business
+     profile, set as social.google in js/config.js. -->
 <section class="section section--tint reviews" id="reviews">
   <div class="container">
     <div class="section-head section-head--center">
       <p class="eyebrow reveal">Patient reviews</p>
-      <h2 class="h2 reveal">What our patients <em>say.</em></h2>
+      <h2 class="h2 reveal">Read what our patients say, <em>independently.</em></h2>
+      <p class="reviews__note reveal">In line with the dental code of ethics, we don't publish patient testimonials or ratings on this website. You can read reviews written by our patients on our Google Business profile.</p>
       <a class="reviews__badge reveal" data-site-href="google" href="https://www.google.com/maps" target="_blank" rel="noopener">
         <svg class="g"><use href="#i-google"/></svg>
-        <span><strong>4.9</strong> / 5</span>
-        <span class="proof__stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
         <span class="reviews__link">Read Reviews on Google <svg><use href="#i-arrow-ur"/></svg></span>
       </a>
     </div>
-  </div>
-
-  <!-- EDIT: SAMPLE reviews. Replace with the client's real Google reviews (with permission) before going live,
-       or remove this section: the dental code of ethics discourages patient testimonials. -->
-  <div class="review-rail" data-rail>
-    <div class="review-rail__track">
-      <figure class="review">
-        <div class="proof__stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <blockquote>I had been putting off my root canal for two years out of fear. The doctor explained every step, it was done in one sitting, and I was comfortable throughout.</blockquote>
-        <figcaption><span class="avatar">PR</span><span><strong>Priya R.</strong><small>Root canal · 2 months ago</small></span></figcaption>
-      </figure>
-      <figure class="review">
-        <div class="proof__stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <blockquote>They showed me the scan, explained three options with the cost of each, and let me decide. No pressure at all.</blockquote>
-        <figcaption><span class="avatar">KS</span><span><strong>Karthik S.</strong><small>Dental implant · 1 month ago</small></span></figcaption>
-      </figure>
-      <figure class="review">
-        <div class="proof__stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <blockquote>My five-year-old used to cry at the word dentist. Now she asks when her next visit is. The children's doctor is very patient.</blockquote>
-        <figcaption><span class="avatar">DN</span><span><strong>Divya N.</strong><small>Kids dentistry · 3 weeks ago</small></span></figcaption>
-      </figure>
-      <figure class="review">
-        <div class="proof__stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <blockquote>Finished my aligner treatment in eleven months. The 3D preview at the start helped me understand exactly what to expect.</blockquote>
-        <figcaption><span class="avatar">AF</span><span><strong>Aisha F.</strong><small>Clear aligners · 4 months ago</small></span></figcaption>
-      </figure>
-      <figure class="review">
-        <div class="proof__stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <blockquote>Very clean clinic, appointments on time, and a friendly team. My whole family now comes here.</blockquote>
-        <figcaption><span class="avatar">RV</span><span><strong>Rahul V.</strong><small>Cleaning &amp; check-up · 1 week ago</small></span></figcaption>
-      </figure>
-      <figure class="review">
-        <div class="proof__stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <blockquote>I chipped my front tooth the night before my sister's wedding. They saw me the same evening and repaired it beautifully.</blockquote>
-        <figcaption><span class="avatar">SM</span><span><strong>Sneha M.</strong><small>Emergency visit · 5 months ago</small></span></figcaption>
-      </figure>
-    </div>
-  </div>
-  <div class="container reviews__controls">
-    <button type="button" class="motion-toggle" data-motion-toggle aria-pressed="false">Pause scrolling reviews</button>
   </div>
 </section>
 
@@ -785,7 +749,7 @@
 
     <div class="footer__bottom">
       <p>© <span data-year>2026</span> <span data-site="legalName" translate="no">Ivory Lane Dental Studio</span>. All rights reserved.</p>
-      <p><a href="#">Privacy policy</a><a href="#">Terms</a></p>
+      <p><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></p>
     </div>
   </div>
 </footer>

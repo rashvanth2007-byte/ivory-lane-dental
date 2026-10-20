@@ -2,7 +2,7 @@
 
 A one-page, mobile-first website for dental clinics in India. Plain HTML, CSS and JavaScript: no build step, no frameworks. Open `index.html` to preview, upload the folder to any host to go live.
 
-"Ivory Lane Dental Studio" and everything on the page (doctors, reviews, prices, numbers) is **sample content** so the demo looks like a finished site. Replace it with the client's real details before launch.
+"Ivory Lane Dental Studio" and everything on the page (doctors, prices, numbers) is **sample content** so the demo looks like a finished site. Replace it with the client's real details before launch.
 
 ## Customising for a client
 
@@ -18,7 +18,7 @@ One file controls everything that repeats across the page:
 | `phone`, `phoneRaw`, `whatsapp`, `email` | Every call, WhatsApp and email link |
 | `addressLine1/2`, `landmark`, `mapQuery` | Address block, Google Map and "Get directions" |
 | `hours` | Hours table and the live "Open now / Closed now" status |
-| `social` | Footer icons (leave a link empty to hide its icon) |
+| `social` | Footer icons (leave a link empty to hide its icon); `google` is also the "Read Reviews on Google" button |
 | `languages`, `offerTranslation` | Header language menu and the first-visit "view in your language?" question (see below) |
 | `formEndpoint` | Leave empty to send bookings to WhatsApp, or paste a Formspree URL to receive them by email |
 
@@ -32,7 +32,7 @@ Search for `EDIT:` to jump to each block:
 - Services and starting prices
 - The four promises, the first-visit steps, FAQs and payment options
 - Doctors: photo, name, degrees, speciality, years and a factual special-interest line
-- Reviews
+- The hero's factual trust line ("MDS specialists, registered with the Tamil Nadu Dental Council")
 
 ### 3. Photos
 
@@ -65,12 +65,12 @@ Translation is done by Google Translate, so it is machine quality and needs an i
 ## Before going live
 
 - [ ] `showThemeSwitcher: false` in `js/config.js`
-- [ ] Sample reviews replaced with the client's real Google reviews (with permission), and the rating updated in the hero and reviews section, or the reviews section removed (see the note on advertising rules below)
+- [ ] `social.google` in `js/config.js` points at the clinic's Google Business profile (the site links to reviews there instead of showing testimonials or ratings)
 - [ ] Sample doctors, prices, statistics and the "Since 2011" stamp replaced; doctors' degrees shown exactly as awarded, and "Specialist" / "Orthodontist" used only for dentists with that MDS
 - [ ] All stock photos replaced with the client's own
 - [ ] Title, meta description, sharing tags (canonical, `og:url`, `og:image`) and JSON-LD block in `<head>` updated
 - [ ] `timeZone` in `js/config.js` set if the clinic is outside India
-- [ ] Privacy policy and terms links in the footer pointed at real pages (mention that the language menu loads Google Translate)
+- [ ] `privacy.html` and `terms.html` reviewed by the clinic (they are samples) and their "Last updated" dates set
 - [ ] Booking form tested on a phone (it should open WhatsApp with the details filled in)
 
 ### Advertising rules for dentists
@@ -84,5 +84,8 @@ index.html        page structure and content
 css/styles.css    design tokens, layout, animation
 js/config.js      client details (edit this first)
 js/main.js        behaviour (rarely needs editing)
+js/legal.js       fills clinic details into the two legal pages
+privacy.html      sample privacy policy
+terms.html        sample terms of use
 assets/img/       put client photos here
 ```

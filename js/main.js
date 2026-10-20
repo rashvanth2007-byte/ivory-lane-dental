@@ -546,8 +546,8 @@
     });
   }
 
-  /* ── 10. Endless rails (treatment marquee + reviews) ────────────────── */
-  $$('.marquee__track, .review-rail__track').forEach(function (track) {
+  /* ── 10. Endless treatment marquee ──────────────────────────────────── */
+  $$('.marquee__track').forEach(function (track) {
     if (reduceMotion) return;
     $$(':scope > *', track).forEach(function (node) {
       var clone = node.cloneNode(true);
@@ -566,7 +566,7 @@
     motionToggle.addEventListener('click', function () {
       var paused = root.classList.toggle('is-motion-paused');
       motionToggle.setAttribute('aria-pressed', String(paused));
-      motionToggle.textContent = paused ? 'Play scrolling reviews' : 'Pause scrolling reviews';
+      motionToggle.setAttribute('aria-label', paused ? 'Play moving text' : 'Pause moving text');
     });
   }
 
