@@ -646,6 +646,10 @@ html:not(.js) .faq__a { grid-template-rows: 1fr; }
 @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
   .hero__grid { grid-template-columns: 1.1fr .9fr; }
   .hero__visual { width: min(100%, 300px); margin-top: 0; }
+  .hero { padding-top: calc(var(--header-h) + 16px); }
+  .hero__title { font-size: 2.600rem; }
+  .hero__lead { margin-top: 16px; }
+  .hero__ctas { margin-top: 22px; }
   .mobile-bar { padding-block: 6px calc(6px + env(safe-area-inset-bottom, 0px)); }
   .mobile-bar a { min-height: 44px; }
 }
@@ -696,6 +700,8 @@ html:not(.js) .faq__a { grid-template-rows: 1fr; }
 }
 
 @media (max-width: 420px) {
+  /* no room beside the day name: the "Today" badge sits neatly underneath it */
+  .hours__today { display: block; width: max-content; margin: 4px 0 0; }
   .hero__title { font-size: 12.400vw; }
   .header__actions { gap: 8px; }
   .lang__btn, .header__phone, .burger { width: 40px; height: 40px; }

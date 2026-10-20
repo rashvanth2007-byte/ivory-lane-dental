@@ -633,7 +633,7 @@
       else { input.setAttribute('aria-invalid', 'true'); input.setAttribute('aria-describedby', status.id); }
     }
     function joinAnd(parts) {
-      return parts.length > 1 ? parts.slice(0, -1).join(', ') + ' and ' + parts[parts.length - 1] : parts[0];
+      return parts.length > 1 ? parts.slice(0, -1).join(', ') + ', and ' + parts[parts.length - 1] : parts[0];
     }
 
     form.addEventListener('submit', function (e) {
@@ -647,8 +647,9 @@
       var dateOk = !date || (!(date.validity && date.validity.badInput) && (!date.value || !date.min || date.value >= date.min));
       flag(name, nameOk); flag(phone, phoneOk); if (date) flag(date, dateOk);
       var problems = [];
-      if (!nameOk) problems.push('enter your name');
-      if (!phoneOk) problems.push('enter a valid mobile number');
+      if (!nameOk && !phoneOk) problems.push('enter your name and a valid mobile number');
+      else if (!nameOk) problems.push('enter your name');
+      else if (!phoneOk) problems.push('enter a valid mobile number');
       if (!dateOk) problems.push('choose today or a later date');
       status.classList.toggle('is-error', problems.length > 0);
       if (problems.length) {
