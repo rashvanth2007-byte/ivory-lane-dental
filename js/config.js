@@ -35,6 +35,10 @@ window.SITE = {
   landmark: "Opposite Tower Park, above Cafe Mocha",
   mapQuery: "Anna Nagar Tower Park, Chennai", // what Google Maps should search for
 
+  /* Time zone the clinic's hours are in, so visitors elsewhere see the right
+     "Open now / Closed now" status. Use "" for the visitor's own clock. */
+  timeZone: "Asia/Kolkata",
+
   /* ── Opening hours (24-hour clock, clinic's local time) ──
      Use closed: true for a day off. Index 0 = Sunday. */
   hours: [

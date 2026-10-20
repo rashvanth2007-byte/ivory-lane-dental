@@ -6,14 +6,20 @@
 
   <!-- EDIT: SEO title + description for each client -->
   <title>Ivory Lane Dental Studio | Dental Clinic in Anna Nagar, Chennai</title>
-  <meta name="description" content="Ivory Lane Dental Studio is a specialist-led dental clinic in Anna Nagar, Chennai, offering dental implants, clear aligners, root canal treatment (RCT), smile designing and kids dentistry. Book an appointment today.">
+  <meta name="description" content="Specialist-led dental clinic in Anna Nagar, Chennai: dental implants, clear aligners, root canal treatment (RCT), smile designing and kids dentistry.">
   <meta name="theme-color" content="#FAF8F4">
 
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ivory Lane Dental Studio">
+  <meta property="og:locale" content="en_IN">
+  <!-- EDIT: once the site has its own domain, add:
+       <link rel="canonical" href="https://www.clinic-domain.in/">
+       <meta property="og:url" content="https://www.clinic-domain.in/">
+       <meta property="og:image" content="https://www.clinic-domain.in/assets/img/share.jpg"> (1200 × 630, shown in WhatsApp link previews) -->
   <meta property="og:title" content="Ivory Lane Dental Studio | Dental Clinic in Anna Nagar, Chennai">
   <meta property="og:description" content="Specialist-led dental care with transparent fees and comfortable treatment. Book an appointment today.">
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='%230F6B6E'/><path d='M10.5 8.5c2-1 3.6.4 5.5.4s3.500-1.400 5.500-.4c2.600 1.300 2.700 5 1.700 8.300-.8 2.800-1.600 6.700-3.200 6.700-1.700 0-1.300-5-4-5s-2.300 5-4 5c-1.600 0-2.400-3.900-3.200-6.700-1-3.300-.9-7 1.700-8.300z' fill='white'/></svg>">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='9'%20fill='%230F6B6E'/%3E%3Cpath%20d='M10.5%208.5c2-1%203.6.4%205.5.4s3.5-1.4%205.5-.4c2.6%201.3%202.7%205%201.7%208.3-.8%202.8-1.6%206.7-3.2%206.7-1.7%200-1.3-5-4-5s-2.3%205-4%205c-1.6%200-2.4-3.9-3.2-6.7-1-3.3-.9-7%201.7-8.3z'%20fill='white'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,7 +90,7 @@
 <!-- ═════════════════════════════ HEADER ═════════════════════════════ -->
 <header class="header">
   <div class="container header__inner">
-    <a href="#top" class="logo" aria-label="Home">
+    <a href="#top" class="logo">
       <span class="logo__mark"><svg><use href="#i-tooth"/></svg></span>
       <span class="logo__text notranslate" translate="no">
         <strong data-site="name">Ivory Lane</strong>
@@ -105,7 +111,7 @@
     <div class="header__actions">
       <!-- Language menu: languages are listed in js/config.js -->
       <div class="lang notranslate" translate="no" data-lang hidden>
-        <button class="lang__btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
+        <button class="lang__btn" type="button" aria-expanded="false" aria-label="Language: English">
           <svg><use href="#i-globe"/></svg><span data-lang-current>English</span>
         </button>
         <ul class="lang__menu" data-lang-menu></ul>
@@ -114,7 +120,7 @@
         <svg><use href="#i-phone"/></svg><span data-site="phone">+91 98765 43210</span>
       </a>
       <a href="#book" class="btn btn--primary btn--sm">Book Appointment <svg><use href="#i-arrow"/></svg></a>
-      <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -122,7 +128,7 @@
 <main id="main">
 
 <!-- ═════════════════════════════ HERO ═════════════════════════════ -->
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero__glow hero__glow--a" aria-hidden="true"></div>
   <div class="hero__glow hero__glow--b" aria-hidden="true"></div>
 
@@ -151,20 +157,20 @@
       <div class="hero__ctas load-in" style="--d:5">
         <a href="#book" class="btn btn--primary btn--lg">Book an Appointment <svg><use href="#i-arrow"/></svg></a>
         <a class="btn btn--ghost btn--lg" data-site-href="whatsapp" href="https://wa.me/919876543210" target="_blank" rel="noopener">
-          <svg class="wa"><use href="#i-whatsapp"/></svg> WhatsApp Us
+          <svg class="wa"><use href="#i-whatsapp"/></svg> Chat on <span translate="no">WhatsApp</span>
         </a>
       </div>
 
       <div class="hero__proof load-in" style="--d:6">
         <div class="proof">
-          <div class="proof__stars" aria-label="Rated 4.9 out of 5">
+          <div class="proof__stars" role="img" aria-label="Rated 4.9 out of 5">
             <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
           </div>
           <p><strong>4.9</strong> rating on Google</p>
         </div>
         <span class="proof__rule" aria-hidden="true"></span>
         <ul class="proof__ticks">
-          <li><svg><use href="#i-check"/></svg> Same-day emergency appointments</li>
+          <li><svg><use href="#i-check"/></svg> Emergency slots every day</li>
           <li><svg><use href="#i-check"/></svg> No-cost EMI available</li>
         </ul>
       </div>
@@ -193,10 +199,10 @@
         </div>
       </div>
 
-      <a href="#book" class="spin-badge" aria-label="Book a consultation">
+      <a href="#book" class="spin-badge" aria-label="Book an appointment">
         <svg viewBox="0 0 120 120" class="spin-badge__ring" aria-hidden="true">
           <defs><path id="ring" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs>
-          <text><textPath href="#ring" textLength="286" lengthAdjust="spacing">BOOK A CONSULTATION · BOOK A CONSULTATION · </textPath></text>
+          <text><textPath href="#ring" textLength="286" lengthAdjust="spacing">BOOK AN APPOINTMENT · BOOK AN APPOINTMENT · </textPath></text>
         </svg>
         <svg class="spin-badge__arrow"><use href="#i-arrow-ur"/></svg>
       </a>
@@ -208,9 +214,9 @@
 <!-- EDIT: scrolling list of treatments -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee__track">
-    <span>Dental Implants</span><i></i><span>Clear Aligners</span><i></i><span>Smile Designing</span><i></i>
+    <span>Dental Implants</span><i></i><span>Clear Aligners</span><i></i><span>Smile Designing &amp; Veneers</span><i></i>
     <span>Root Canal Treatment</span><i></i><span>Teeth Whitening</span><i></i><span>Kids Dentistry</span><i></i>
-    <span>Crowns &amp; Bridges</span><i></i><span>Gum Treatment</span><i></i>
+    <span>Crowns &amp; Bridges</span><i></i><span>Teeth Cleaning &amp; Gum Treatment</span><i></i>
   </div>
 </div>
 
@@ -281,7 +287,7 @@
         <footer><span>From <b>₹25,000</b></span><a href="#book" aria-label="Enquire about dental implants"><svg><use href="#i-arrow-ur"/></svg></a></footer>
       </article>
 
-      <article class="service reveal" style="--i:1">
+      <article class="service service--tagged reveal" style="--i:1">
         <span class="service__tag">Popular</span>
         <span class="service__icon"><svg><use href="#i-aligner"/></svg></span>
         <h3>Clear Aligners</h3>
@@ -293,14 +299,14 @@
         <span class="service__icon"><svg><use href="#i-sparkle"/></svg></span>
         <h3>Smile Designing &amp; Veneers</h3>
         <p>Veneers and bonding to correct chipped, gapped or discoloured teeth, planned to suit your facial features.</p>
-        <footer><span>From <b>₹8,000</b> / tooth</span><a href="#book" aria-label="Enquire about smile designing"><svg><use href="#i-arrow-ur"/></svg></a></footer>
+        <footer><span>From <b>₹8,000</b> / tooth</span><a href="#book" aria-label="Enquire about smile designing and veneers"><svg><use href="#i-arrow-ur"/></svg></a></footer>
       </article>
 
       <article class="service reveal" style="--i:3">
         <span class="service__icon"><svg><use href="#i-root"/></svg></span>
         <h3>Root Canal Treatment (RCT)</h3>
         <p>Saves an infected tooth under local anaesthesia, using a dental microscope. Often completed in a single sitting.</p>
-        <footer><span>From <b>₹4,500</b></span><a href="#book" aria-label="Enquire about root canal treatment"><svg><use href="#i-arrow-ur"/></svg></a></footer>
+        <footer><span>From <b>₹4,500</b></span><a href="#book" aria-label="Enquire about root canal treatment (RCT)"><svg><use href="#i-arrow-ur"/></svg></a></footer>
       </article>
 
       <article class="service reveal" style="--i:4">
@@ -328,7 +334,7 @@
         <span class="service__icon"><svg><use href="#i-shield"/></svg></span>
         <h3>Teeth Cleaning &amp; Gum Treatment</h3>
         <p>Scaling, polishing and gum treatment to manage bleeding gums and bad breath, and to prevent future problems.</p>
-        <footer><span>From <b>₹1,200</b></span><a href="#book" aria-label="Enquire about cleaning and gum care"><svg><use href="#i-arrow-ur"/></svg></a></footer>
+        <footer><span>From <b>₹1,200</b></span><a href="#book" aria-label="Enquire about teeth cleaning and gum treatment"><svg><use href="#i-arrow-ur"/></svg></a></footer>
       </article>
     </div>
   </div>
@@ -439,19 +445,19 @@
     <div class="doctors">
       <article class="doctor reveal" style="--i:0">
         <figure>
-          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&crop=faces&w=700&h=880&q=75" alt="Dr. Ananya Krishnan" loading="lazy" width="700" height="880">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&crop=faces&w=700&h=880&q=75" alt="Portrait of Dr. Ananya Krishnan" loading="lazy" width="700" height="880">
           <figcaption>Special interest: dental implants and full mouth rehabilitation.</figcaption>
         </figure>
         <div class="doctor__body">
           <h3>Dr. Ananya Krishnan</h3>
-          <p class="doctor__role">Founder · Prosthodontist &amp; Implantologist</p>
+          <p class="doctor__role">Founder · Prosthodontist</p>
           <p class="doctor__meta">BDS, MDS (Prosthodontics) · 14 years</p>
         </div>
       </article>
 
       <article class="doctor reveal" style="--i:1">
         <figure>
-          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&crop=faces&w=700&h=880&q=75" alt="Dr. Arjun Menon" loading="lazy" width="700" height="880">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&crop=faces&w=700&h=880&q=75" alt="Portrait of Dr. Arjun Menon" loading="lazy" width="700" height="880">
           <figcaption>Special interest: clear aligners and orthodontics for teens and adults.</figcaption>
         </figure>
         <div class="doctor__body">
@@ -463,13 +469,13 @@
 
       <article class="doctor reveal" style="--i:2">
         <figure>
-          <img src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&crop=faces&w=700&h=880&q=75" alt="Dr. Meera Iyer" loading="lazy" width="700" height="880">
+          <img src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&crop=faces&w=700&h=880&q=75" alt="Portrait of Dr. Meera Iyer" loading="lazy" width="700" height="880">
           <figcaption>Special interest: preventive care and treating anxious children.</figcaption>
         </figure>
         <div class="doctor__body">
           <h3>Dr. Meera Iyer</h3>
           <p class="doctor__role">Paediatric Dentist</p>
-          <p class="doctor__meta">BDS, MDS (Pedodontics) · 7 years</p>
+          <p class="doctor__meta">BDS, MDS (Paediatric and Preventive Dentistry) · 7 years</p>
         </div>
       </article>
     </div>
@@ -491,7 +497,7 @@
       <li class="step reveal">
         <span class="step__dot">1</span>
         <h3>Book your appointment</h3>
-        <p>Book online, on WhatsApp or by phone. We confirm your slot within minutes during clinic hours.</p>
+        <p>Book online, on WhatsApp or by phone. We confirm your slot promptly during clinic hours.</p>
         <small>Takes under a minute</small>
       </li>
       <li class="step reveal">
@@ -525,8 +531,8 @@
       <a class="reviews__badge reveal" data-site-href="google" href="https://www.google.com/maps" target="_blank" rel="noopener">
         <svg class="g"><use href="#i-google"/></svg>
         <span><strong>4.9</strong> / 5</span>
-        <span class="proof__stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
-        <span class="reviews__link">Read reviews on Google <svg><use href="#i-arrow-ur"/></svg></span>
+        <span class="proof__stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <span class="reviews__link">Read Reviews on Google <svg><use href="#i-arrow-ur"/></svg></span>
       </a>
     </div>
   </div>
@@ -536,36 +542,39 @@
   <div class="review-rail" data-rail>
     <div class="review-rail__track">
       <figure class="review">
-        <div class="proof__stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+        <div class="proof__stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
         <blockquote>I had been putting off my root canal for two years out of fear. The doctor explained every step, it was done in one sitting, and I was comfortable throughout.</blockquote>
         <figcaption><span class="avatar">PR</span><span><strong>Priya R.</strong><small>Root canal · 2 months ago</small></span></figcaption>
       </figure>
       <figure class="review">
-        <div class="proof__stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+        <div class="proof__stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
         <blockquote>They showed me the scan, explained three options with the cost of each, and let me decide. No pressure at all.</blockquote>
         <figcaption><span class="avatar">KS</span><span><strong>Karthik S.</strong><small>Dental implant · 1 month ago</small></span></figcaption>
       </figure>
       <figure class="review">
-        <div class="proof__stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+        <div class="proof__stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
         <blockquote>My five-year-old used to cry at the word dentist. Now she asks when her next visit is. The children's doctor is very patient.</blockquote>
         <figcaption><span class="avatar">DN</span><span><strong>Divya N.</strong><small>Kids dentistry · 3 weeks ago</small></span></figcaption>
       </figure>
       <figure class="review">
-        <div class="proof__stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+        <div class="proof__stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
         <blockquote>Finished my aligner treatment in eleven months. The 3D preview at the start helped me understand exactly what to expect.</blockquote>
         <figcaption><span class="avatar">AF</span><span><strong>Aisha F.</strong><small>Clear aligners · 4 months ago</small></span></figcaption>
       </figure>
       <figure class="review">
-        <div class="proof__stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+        <div class="proof__stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
         <blockquote>Very clean clinic, appointments on time, and a friendly team. My whole family now comes here.</blockquote>
         <figcaption><span class="avatar">RV</span><span><strong>Rahul V.</strong><small>Cleaning &amp; check-up · 1 week ago</small></span></figcaption>
       </figure>
       <figure class="review">
-        <div class="proof__stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+        <div class="proof__stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
         <blockquote>I chipped my front tooth the night before my sister's wedding. They saw me the same evening and repaired it beautifully.</blockquote>
         <figcaption><span class="avatar">SM</span><span><strong>Sneha M.</strong><small>Emergency visit · 5 months ago</small></span></figcaption>
       </figure>
     </div>
+  </div>
+  <div class="container reviews__controls">
+    <button type="button" class="motion-toggle" data-motion-toggle aria-pressed="false">Pause scrolling reviews</button>
   </div>
 </section>
 
@@ -593,33 +602,33 @@
       <p class="eyebrow reveal">FAQs</p>
       <h2 class="h2 reveal">Frequently asked <em>questions.</em></h2>
       <p class="lead reveal">Can't find your answer? Message us on WhatsApp and our front office team will reply.</p>
-      <a class="btn btn--ghost reveal" data-site-href="whatsapp" href="https://wa.me/919876543210" target="_blank" rel="noopener"><svg class="wa"><use href="#i-whatsapp"/></svg> Ask on WhatsApp</a>
+      <a class="btn btn--ghost reveal" data-site-href="whatsapp" href="https://wa.me/919876543210" target="_blank" rel="noopener"><svg class="wa"><use href="#i-whatsapp"/></svg> Ask on <span translate="no">WhatsApp</span></a>
     </div>
 
     <!-- EDIT: FAQs -->
     <div class="faq reveal" data-faq>
       <div class="faq__item is-open">
-        <button class="faq__q" aria-expanded="true">Is root canal treatment painful?<span><svg><use href="#i-plus"/></svg></span></button>
+        <button type="button" class="faq__q" aria-expanded="true">Is root canal treatment painful?<span><svg><use href="#i-plus"/></svg></span></button>
         <div class="faq__a"><div><p>Root canal treatment is done under local anaesthesia, so most patients find it similar to having a filling. We apply a numbing gel before the injection and use computer-controlled anaesthesia. If you are anxious, ask us about conscious sedation.</p></div></div>
       </div>
       <div class="faq__item">
-        <button class="faq__q" aria-expanded="false">What is the consultation fee?<span><svg><use href="#i-plus"/></svg></span></button>
+        <button type="button" class="faq__q" aria-expanded="false">What is the consultation fee?<span><svg><use href="#i-plus"/></svg></span></button>
         <div class="faq__a"><div><p>The consultation fee is ₹300 and includes a complete oral examination and a written treatment plan. If you begin treatment on the same day, the fee is adjusted in your bill.</p></div></div>
       </div>
       <div class="faq__item">
-        <button class="faq__q" aria-expanded="false">Do you offer EMI or accept dental insurance?<span><svg><use href="#i-plus"/></svg></span></button>
+        <button type="button" class="faq__q" aria-expanded="false">Do you offer EMI or accept dental insurance?<span><svg><use href="#i-plus"/></svg></span></button>
         <div class="faq__a"><div><p>Yes. No-cost EMI is available on treatments above ₹15,000 through our finance partners. Most health insurance policies do not cover routine dental treatment; if yours does, our front office will help you with the claim.</p></div></div>
       </div>
       <div class="faq__item">
-        <button class="faq__q" aria-expanded="false">Can I get an emergency appointment for tooth pain?<span><svg><use href="#i-plus"/></svg></span></button>
+        <button type="button" class="faq__q" aria-expanded="false">Can I get an emergency appointment for tooth pain?<span><svg><use href="#i-plus"/></svg></span></button>
         <div class="faq__a"><div><p>Yes. We keep emergency slots open every day. Call or WhatsApp us as early as possible and we will do our best to see you within a few hours.</p></div></div>
       </div>
       <div class="faq__item">
-        <button class="faq__q" aria-expanded="false">How long do dental implants last?<span><svg><use href="#i-plus"/></svg></span></button>
+        <button type="button" class="faq__q" aria-expanded="false">How long do dental implants last?<span><svg><use href="#i-plus"/></svg></span></button>
         <div class="faq__a"><div><p>With good oral hygiene and regular check-ups, implants are a long-term solution. The crown on the implant may need replacing over time due to normal wear. Your dentist will explain what to expect in your case.</p></div></div>
       </div>
       <div class="faq__item">
-        <button class="faq__q" aria-expanded="false">Is parking available at the clinic?<span><svg><use href="#i-plus"/></svg></span></button>
+        <button type="button" class="faq__q" aria-expanded="false">Is parking available at the clinic?<span><svg><use href="#i-plus"/></svg></span></button>
         <div class="faq__a"><div><p>Yes, free parking for cars and two-wheelers is available in the basement. The clinic is wheelchair accessible, with lift access to our floor.</p></div></div>
       </div>
     </div>
@@ -631,11 +640,11 @@
   <div class="container book__grid">
     <div class="book__info">
       <p class="eyebrow reveal">Book an appointment</p>
-      <h2 class="h2 reveal">Your healthiest smile starts with <em>one visit.</em></h2>
+      <h2 class="h2 reveal">A healthier smile starts with <em>one visit.</em></h2>
       <p class="lead reveal">Share your preferred date and time, and we will confirm your appointment on WhatsApp, usually within 15 minutes during clinic hours.</p>
 
       <ul class="contact-list reveal">
-        <li>
+        <li data-site-row>
           <span><svg><use href="#i-phone"/></svg></span>
           <div><small>Call us</small><a data-site-href="phone" href="tel:+919876543210" data-site="phone">+91 98765 43210</a></div>
         </li>
@@ -649,9 +658,9 @@
             <em data-site="landmark">Opposite Tower Park, above Cafe Mocha</em>
           </div>
         </li>
-        <li>
+        <li data-site-row>
           <span><svg><use href="#i-mail"/></svg></span>
-          <div><small>Email</small><a data-site-href="email" href="mailto:hello@ivorylane.dental" data-site="email">hello@ivorylane.dental</a></div>
+          <div><small>Email</small><a data-site-href="email" href="mailto:hello@ivorylane.dental" data-site="email" translate="no">hello@ivorylane.dental</a></div>
         </li>
       </ul>
 
@@ -675,7 +684,7 @@
             <input type="text" name="name" autocomplete="name" placeholder="Your name" required>
           </label>
           <label class="field"><span>Mobile number</span>
-            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="98765 43210" required pattern="[0-9+ ]{10,15}">
+            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="98765 43210" required>
           </label>
         </div>
 
@@ -689,12 +698,13 @@
             <option>Root canal treatment (RCT)</option>
             <option>Teeth whitening</option>
             <option>Teeth cleaning / gum treatment</option>
+            <option>Crowns / bridges</option>
             <option>Kids dentistry</option>
             <option>Other</option>
           </select>
         </label>
 
-        <div class="field-row">
+        <div class="field-row field-row--time">
           <label class="field"><span>Preferred date</span>
             <input type="date" name="date">
           </label>
@@ -713,9 +723,9 @@
         </label>
 
         <button type="submit" class="btn btn--accent btn--lg btn--block">
-          <svg class="wa"><use href="#i-whatsapp"/></svg> Send Request on WhatsApp
+          <svg class="wa"><use href="#i-whatsapp"/></svg> Send Request on <span translate="no">WhatsApp</span>
         </button>
-        <p class="form__status" role="status" aria-live="polite"></p>
+        <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
         <p class="form__fine">Your details are used only to schedule your appointment.</p>
       </form>
     </div>
@@ -724,7 +734,7 @@
   <div class="container">
     <div class="map reveal">
       <!-- Map location comes from "mapQuery" in js/config.js -->
-      <iframe data-map title="Clinic location on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      <iframe data-map title="Clinic location on Google Maps" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps?q=Anna+Nagar+Tower+Park,+Chennai&output=embed"></iframe>
       <a class="btn btn--light map__btn" data-site-href="maps" href="https://www.google.com/maps" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg> Get Directions</a>
     </div>
@@ -738,11 +748,11 @@
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
-        <a href="#top" class="logo logo--light" aria-label="Home">
+        <a href="#top" class="logo logo--light">
           <span class="logo__mark"><svg><use href="#i-tooth"/></svg></span>
           <span class="logo__text notranslate" translate="no"><strong data-site="name">Ivory Lane</strong><small data-site="suffix">Dental Studio</small></span>
         </a>
-        <p>Specialist-led dental care for the whole family in Anna Nagar, Chennai. Clear advice, transparent fees and a caring team.</p>
+        <p>Specialist-led dental care for the whole family in <span data-site="area">Anna Nagar</span>, <span data-site="city">Chennai</span>. Clear advice, transparent fees and a caring team.</p>
         <div class="socials" data-socials>
           <a data-social="instagram" href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg><use href="#i-instagram"/></svg></a>
           <a data-social="facebook" href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg><use href="#i-facebook"/></svg></a>
@@ -755,7 +765,7 @@
         <h4>Treatments</h4>
         <a href="#treatments">Dental implants</a>
         <a href="#treatments">Clear aligners</a>
-        <a href="#treatments">Smile designing</a>
+        <a href="#results">Smile designing</a>
         <a href="#treatments">Root canal treatment</a>
         <a href="#treatments">Kids dentistry</a>
       </nav>
@@ -772,7 +782,7 @@
       <div>
         <h4>Get in touch</h4>
         <a data-site-href="phone" href="tel:+919876543210" data-site="phone">+91 98765 43210</a>
-        <a data-site-href="email" href="mailto:hello@ivorylane.dental" data-site="email">hello@ivorylane.dental</a>
+        <a data-site-href="email" href="mailto:hello@ivorylane.dental" data-site="email" translate="no">hello@ivorylane.dental</a>
         <p><span data-site="addressLine1">No. 24, 2nd Avenue, Anna Nagar</span><br><span data-site="addressLine2">Chennai, Tamil Nadu 600040</span></p>
       </div>
     </div>
@@ -780,7 +790,7 @@
     <p class="footer__word notranslate" translate="no" aria-hidden="true" data-site="name">Ivory Lane</p>
 
     <div class="footer__bottom">
-      <p>© <span data-year>2026</span> <span data-site="legalName">Ivory Lane Dental Studio</span>. All rights reserved.</p>
+      <p>© <span data-year>2026</span> <span data-site="legalName" translate="no">Ivory Lane Dental Studio</span>. All rights reserved.</p>
       <p><a href="#">Privacy policy</a><a href="#">Terms</a></p>
     </div>
   </div>
@@ -794,7 +804,7 @@
 <!-- Sticky action bar (mobile) -->
 <div class="mobile-bar">
   <a data-site-href="phone" href="tel:+919876543210"><svg><use href="#i-phone"/></svg> Call</a>
-  <a data-site-href="whatsapp" href="https://wa.me/919876543210" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg> WhatsApp</a>
+  <a data-site-href="whatsapp" href="https://wa.me/919876543210" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg> <span translate="no">WhatsApp</span></a>
   <a href="#book" class="is-primary">Book Now</a>
 </div>
 

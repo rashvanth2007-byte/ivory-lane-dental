@@ -31,7 +31,7 @@ Search for `EDIT:` to jump to each block:
 - About text and the four headline numbers (`data-count` is the value that animates)
 - Services and starting prices
 - The four promises, the first-visit steps, FAQs and payment options
-- Doctors: photo, name, degree, speciality and quote
+- Doctors: photo, name, degrees, speciality, years and a factual special-interest line
 - Reviews
 
 ### 3. Photos
@@ -68,14 +68,15 @@ Translation is done by Google Translate, so it is machine quality and needs an i
 - [ ] Sample reviews replaced with the client's real Google reviews (with permission), and the rating updated in the hero and reviews section, or the reviews section removed (see the note on advertising rules below)
 - [ ] Sample doctors, prices, statistics and the "Since 2011" stamp replaced; doctors' degrees shown exactly as awarded, and "Specialist" / "Orthodontist" used only for dentists with that MDS
 - [ ] Before/after photos are the clinic's own, with written patient consent, or the comparison slider removed
+- [ ] All stock photos replaced with the client's own
+- [ ] Title, meta description, sharing tags (canonical, `og:url`, `og:image`) and JSON-LD block in `<head>` updated
+- [ ] `timeZone` in `js/config.js` set if the clinic is outside India
+- [ ] Privacy policy and terms links in the footer pointed at real pages (mention that the language menu loads Google Translate)
+- [ ] Booking form tested on a phone (it should open WhatsApp with the details filled in)
 
 ### Advertising rules for dentists
 
-The copy follows the Dentists (Code of Ethics) Regulations, 2014 (still in force under the National Dental Commission): factual information, fees and timings are allowed. Claims of being the "best", "painless" or guaranteed results, and boasting about case numbers, are not. In October 2026 the National Dental Commission warned dentists against patient testimonials and before/after photos in online advertising. Keep the client's wording factual and ask them to confirm anything they are unsure of with the Tamil Nadu Dental Council. This is guidance, not legal advice.
-- [ ] All stock photos replaced with the client's own
-- [ ] Title, meta description and JSON-LD block in `<head>` updated
-- [ ] Privacy policy and terms links in the footer pointed at real pages
-- [ ] Booking form tested on a phone (it should open WhatsApp with the details filled in)
+The copy follows the Dentists (Code of Ethics) Regulations, 2014 (still in force under the National Dental Commission): factual information, qualifications, fees and timings are allowed. Claims of being the "best", "painless" or guaranteed results, and boasting about case numbers, are not. Use only recognised degree and speciality names (for example "MDS (Paediatric and Preventive Dentistry)"). In October 2026 the National Dental Commission warned dentists against patient testimonials and before/after photos in online advertising ([news report](https://medicaldialogues.in/news/health/doctors/national-dental-commission-warns-dentists-against-unethical-social-media-advertising-181335)). Keep the client's wording factual and ask them to confirm anything they are unsure of with the Tamil Nadu Dental Council. This is guidance, not legal advice.
 
 ## Files
 
