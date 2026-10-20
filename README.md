@@ -65,8 +65,13 @@ Translation is done by Google Translate, so it is machine quality and needs an i
 ## Before going live
 
 - [ ] `showThemeSwitcher: false` in `js/config.js`
-- [ ] Sample reviews replaced with the client's real Google reviews, and the rating and review count updated in the hero and reviews section
-- [ ] Sample doctors, prices, statistics and the "Since 2011" stamp replaced
+- [ ] Sample reviews replaced with the client's real Google reviews (with permission), and the rating updated in the hero and reviews section, or the reviews section removed (see the note on advertising rules below)
+- [ ] Sample doctors, prices, statistics and the "Since 2011" stamp replaced; doctors' degrees shown exactly as awarded, and "Specialist" / "Orthodontist" used only for dentists with that MDS
+- [ ] Before/after photos are the clinic's own, with written patient consent, or the comparison slider removed
+
+### Advertising rules for dentists
+
+The copy follows the Dentists (Code of Ethics) Regulations, 2014 (still in force under the National Dental Commission): factual information, fees and timings are allowed. Claims of being the "best", "painless" or guaranteed results, and boasting about case numbers, are not. In October 2026 the National Dental Commission warned dentists against patient testimonials and before/after photos in online advertising. Keep the client's wording factual and ask them to confirm anything they are unsure of with the Tamil Nadu Dental Council. This is guidance, not legal advice.
 - [ ] All stock photos replaced with the client's own
 - [ ] Title, meta description and JSON-LD block in `<head>` updated
 - [ ] Privacy policy and terms links in the footer pointed at real pages

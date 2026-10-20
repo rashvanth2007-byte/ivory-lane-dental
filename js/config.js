@@ -26,7 +26,7 @@ window.SITE = {
   phone: "+91 98765 43210",           // shown on the page
   phoneRaw: "+919876543210",          // used for tap-to-call
   whatsapp: "919876543210",           // country code + number, digits only
-  whatsappGreeting: "Hi! I'd like to book an appointment.",
+  whatsappGreeting: "Hello, I would like to book an appointment.",
   email: "hello@ivorylane.dental",
 
   /* ── Location ── */

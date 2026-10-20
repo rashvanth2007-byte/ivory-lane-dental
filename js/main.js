@@ -197,7 +197,7 @@
   /* ── 3. Opening hours + live "open now" status ──────────────────────── */
   function fmt(t) {
     var p = t.split(':'), h = +p[0], m = p[1];
-    return ((h % 12) || 12) + ':' + m + ' ' + (h < 12 ? 'am' : 'pm');
+    return ((h % 12) || 12) + ':' + m + ' ' + (h < 12 ? 'AM' : 'PM');
   }
   function mins(t) { var p = t.split(':'); return +p[0] * 60 + +p[1]; }
 
@@ -242,7 +242,7 @@
     }
 
     var statusText;
-    if (isOpen) statusText = 'Open now · till ' + fmt(today.close);
+    if (isOpen) statusText = 'Open now · until ' + fmt(today.close);
     else if (!today.closed && nowMins < mins(today.open)) statusText = 'Opens today at ' + fmt(today.open);
     else {
       var next = SITE.hours[(now.getDay() + 1) % 7];
@@ -477,7 +477,7 @@
       var submitBtn = $('button[type="submit"]', form);
       submitBtn.classList.remove('btn--accent');
       submitBtn.classList.add('btn--primary');
-      submitBtn.textContent = 'Request appointment';
+      submitBtn.textContent = 'Request Appointment';
     }
 
     form.addEventListener('submit', function (e) {
@@ -490,7 +490,7 @@
         if (!valid && ok) { input.focus(); ok = false; }
       });
       status.classList.toggle('is-error', !ok);
-      if (!ok) { status.textContent = 'Please add your name and a valid mobile number.'; return; }
+      if (!ok) { status.textContent = 'Please enter your name and a valid mobile number.'; return; }
 
       var data = {
         name: name.value.trim(),
@@ -510,10 +510,10 @@
         }).then(function (res) {
           if (!res.ok) throw new Error('Request failed');
           form.reset();
-          status.textContent = 'Thank you, ' + data.name + '. We\'ll call you shortly to confirm.';
+          status.textContent = 'Thank you, ' + data.name + '. We will call you shortly to confirm your appointment.';
         }).catch(function () {
           status.classList.add('is-error');
-          status.textContent = 'Sorry, that didn\'t go through. Please call us on ' + (SITE.phone || 'the clinic number') + '.';
+          status.textContent = 'Sorry, your request could not be sent. Please call us on ' + (SITE.phone || 'the clinic number') + '.';
         });
         return;
       }
@@ -522,7 +522,7 @@
         ? new Date(data.date + 'T00:00').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' })
         : 'Earliest available';
       var lines = [
-        'Hello ' + (SITE.legalName || SITE.name || '') + ', I\'d like to book an appointment.',
+        'Hello ' + (SITE.legalName || SITE.name || '') + ', I would like to book an appointment.',
         '',
         'Name: ' + data.name,
         'Mobile: ' + data.phone,

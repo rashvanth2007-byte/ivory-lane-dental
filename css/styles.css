@@ -43,6 +43,7 @@
   --section: clamp(72px, 10vw, 140px);
   --ease: cubic-bezier(.2, .7, .2, 1);
   --header-h: 84px;
+  --header-h-scrolled: 68px;
 }
 
 /* Ready-made themes — set "theme" in js/config.js */
@@ -52,7 +53,8 @@
 
 /* ───────────────────────── 2. BASE ───────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 8px); -webkit-text-size-adjust: 100%; overflow-x: clip; }
+/* in-page links land flush under the header, which is always in its compact (scrolled) height by then */
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-h-scrolled); -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -184,7 +186,7 @@ em { font-style: italic; }
 .header::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; pointer-events: none; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: saturate(1.400) blur(16px); -webkit-backdrop-filter: saturate(1.400) blur(16px); box-shadow: 0 1px 0 var(--line); transition: opacity .35s; }
 .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: var(--header-h); transition: height .35s var(--ease); }
 .header.is-scrolled::before { opacity: 1; }
-.header.is-scrolled .header__inner { height: 68px; }
+.header.is-scrolled .header__inner { height: var(--header-h-scrolled); }
 .nav { display: flex; align-items: center; gap: clamp(16px, 2.200vw, 34px); }
 .nav a:not(.btn) { position: relative; white-space: nowrap; font-size: .920rem; font-weight: 600; color: var(--ink); padding: 6px 0; }
 .nav a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.500px; background: var(--brand); transform: scaleX(0); transform-origin: 100% 50%; transition: transform .4s var(--ease); }
