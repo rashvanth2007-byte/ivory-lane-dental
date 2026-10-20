@@ -43,10 +43,10 @@ The demo uses free Unsplash stock photos loaded by URL. For a client, put their 
 | Hero | 1000 × 1250 (portrait) |
 | About, main / small | 900 × 1050 / 600 × 600 |
 | Technology | 900 × 620 |
-| Before and after | 1100 × 820 each, same framing |
+| Smile designing | 1100 × 820 |
 | Doctors | 700 × 880 each |
 
-The before/after slider currently shows one sample photo twice, with the "before" side tinted. Once you add a real pair, remove the class `compare--demo` from that block.
+The template has no before/after photo comparison on purpose: the dental code of ethics and the National Dental Commission advise against patient before/after photos in advertising. Use a photo of the clinic, its team or its smile-design software in the Smile designing section instead.
 
 ### 4. A custom brand colour
 
@@ -67,7 +67,6 @@ Translation is done by Google Translate, so it is machine quality and needs an i
 - [ ] `showThemeSwitcher: false` in `js/config.js`
 - [ ] Sample reviews replaced with the client's real Google reviews (with permission), and the rating updated in the hero and reviews section, or the reviews section removed (see the note on advertising rules below)
 - [ ] Sample doctors, prices, statistics and the "Since 2011" stamp replaced; doctors' degrees shown exactly as awarded, and "Specialist" / "Orthodontist" used only for dentists with that MDS
-- [ ] Before/after photos are the clinic's own, with written patient consent, or the comparison slider removed
 - [ ] All stock photos replaced with the client's own
 - [ ] Title, meta description, sharing tags (canonical, `og:url`, `og:image`) and JSON-LD block in `<head>` updated
 - [ ] `timeZone` in `js/config.js` set if the clinic is outside India

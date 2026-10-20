@@ -579,42 +579,7 @@
     });
   });
 
-  /* ── 12. Before / after slider ──────────────────────────────────────── */
-  $$('.compare').forEach(function (box) {
-    var range = $('.compare__range', box);
-    var touched = false;
-    function set(v) {
-      box.style.setProperty('--pos', v + '%');
-      range.setAttribute('aria-valuetext', Math.round(v) + '% before, ' + (100 - Math.round(v)) + '% after');
-    }
-    set(range.value);
-    range.addEventListener('input', function () { set(range.value); });
-    // any touch, drag or key press stops the hint for good
-    ['pointerdown', 'touchstart', 'keydown', 'input'].forEach(function (type) {
-      range.addEventListener(type, function () { touched = true; }, { passive: true });
-    });
-    // a gentle nudge the first time it scrolls into view, to hint that it drags
-    if ('IntersectionObserver' in window && !reduceMotion) {
-      var hinted = false;
-      new IntersectionObserver(function (entries, obs) {
-        if (!entries[0].isIntersecting || hinted) return;
-        hinted = true; obs.disconnect();
-        var t0 = null;
-        function nudge(ts) {
-          if (touched) return;
-          if (t0 === null) t0 = ts;
-          var t = (ts - t0) / 1600;
-          if (t >= 1) { range.value = 50; set(50); return; }
-          var v = 50 + Math.sin(t * Math.PI * 2) * 16 * (1 - t);
-          range.value = v; set(v);
-          requestAnimationFrame(nudge);
-        }
-        setTimeout(function () { requestAnimationFrame(nudge); }, 700);
-      }, { threshold: 0.600 }).observe(box);
-    }
-  });
-
-  /* ── 13. FAQ accordion ──────────────────────────────────────────────── */
+  /* ── 12. FAQ accordion ──────────────────────────────────────────────── */
   $$('[data-faq]').forEach(function (faq) {
     // closed answers are only collapsed visually, so keep screen readers out of them too
     function sync(item) { $('.faq__a', item).inert = !item.classList.contains('is-open'); }
@@ -635,7 +600,7 @@
     });
   });
 
-  /* ── 14. Booking form → WhatsApp (or a form endpoint) ───────────────── */
+  /* ── 13. Booking form → WhatsApp (or a form endpoint) ───────────────── */
   var form = $('[data-booking]');
   if (form) {
     var status = $('.form__status', form);

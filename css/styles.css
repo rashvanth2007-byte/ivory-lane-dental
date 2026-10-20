@@ -352,22 +352,13 @@ font { font: inherit; color: inherit; }
 .promise h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.500rem, 2.200vw, 1.900rem); line-height: 1.150; color: #fff; }
 .promise p { margin-top: 8px; max-width: 48ch; }
 
-/* Results / compare slider */
+/* Smile designing */
 .results__grid { display: grid; grid-template-columns: .85fr 1.150fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
 .results__copy .lead { margin-top: 22px; }
-.compare { position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 11 / 8.200; background: var(--tint); box-shadow: var(--shadow-md); user-select: none; touch-action: pan-y; }
-.compare img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-.compare__after { position: absolute; inset: 0; }
-.compare__before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
-.compare--demo .compare__before img { filter: sepia(.6) saturate(1.500) hue-rotate(-14deg) brightness(.86) contrast(.92); }
-.compare__label { position: absolute; top: 18px; padding: 6px 14px; border-radius: 999px; background: rgba(11, 42, 48, .62); color: #fff; font-size: .740rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-.compare__label--before { left: 18px; }
-.compare__label--after { right: 18px; }
-.compare__handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; background: #fff; transform: translateX(-1px); pointer-events: none; }
-.compare__handle svg { position: absolute; top: 50%; left: 50%; width: 52px; height: 52px; padding: 14px; transform: translate(-50%, -50%); border-radius: 50%; background: #fff; color: var(--ink); box-shadow: 0 6px 24px rgba(0, 0, 0, .25); transition: transform .3s var(--ease); }
-.compare:hover .compare__handle svg { transform: translate(-50%, -50%) scale(1.080); }
-.compare__range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
-.compare:has(.compare__range:focus-visible) { outline: 2px solid var(--brand); outline-offset: 4px; }
+.results__img { position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 11 / 8.200; background: var(--tint); box-shadow: var(--shadow-md); }
+.results__img img { width: 100%; height: 100%; object-fit: cover; }
+.results__img figcaption { position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, .94); color: var(--ink); font-size: .780rem; font-weight: 700; }
+.results__img figcaption svg { color: var(--brand); font-size: 1.050rem; }
 
 /* Doctors */
 .doctors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -738,7 +729,7 @@ html:not(.js) .faq__a { grid-template-rows: 1fr; }
 .translated-ltr .hero__title { font-size: clamp(2rem, 4.4vw, 3.6rem); line-height: 1.25; letter-spacing: 0; }
 .translated-ltr .hero__title .line { overflow: visible; padding-bottom: 0; margin-bottom: 0; }
 .translated-ltr .h2 { font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.35; letter-spacing: 0; }
-.translated-ltr .eyebrow, .translated-ltr .footer h4, .translated-ltr .contact-list small, .translated-ltr .compare__label, .translated-ltr .service__tag { letter-spacing: .02em; }
+.translated-ltr .eyebrow, .translated-ltr .footer h4, .translated-ltr .contact-list small, .translated-ltr .service__tag { letter-spacing: .02em; }
 .translated-ltr .service h3, .translated-ltr .step h3, .translated-ltr .promise h3, .translated-ltr .doctor h3, .translated-ltr .faq__q, .translated-ltr .form h3, .translated-ltr .band h2 { font-size: 1.25rem; line-height: 1.45; }
 .translated-ltr .review blockquote, .translated-ltr .doctor figcaption { font-size: 1.05rem; line-height: 1.6; font-style: normal; }
 .translated-ltr .marquee span { font-size: 1.4rem; font-style: normal; }
