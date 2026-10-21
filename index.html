@@ -104,7 +104,7 @@
       <a href="#treatments">Treatments</a>
       <a href="#approach">Why Us</a>
       <a href="#results">Smile Designing</a>
-      <a href="#doctors">Doctors</a>
+      <a href="#doctors"><span data-if="specialists">Doctors</span><span data-if="!specialists">Our Dentist</span></a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQs</a>
       <a href="#book" class="nav__cta-mobile btn btn--primary">Book an Appointment</a>
@@ -140,10 +140,12 @@
         <span class="status-dot" data-open-dot></span>
         <span data-open-status>Open today · 9:30 AM – 8:00 PM</span>
         <span class="pill__sep"></span>
-        <span><span data-site="area">Anna Nagar</span>, <span data-site="city">Chennai</span></span>
+        <span><span data-site-row><span data-site="area">Anna Nagar</span>, </span><span data-site="city">Chennai</span></span>
       </p>
 
-      <!-- EDIT: main headline -->
+      <!-- EDIT: main headline.
+           Wording marked data-if="specialists" / "equipment" / "prices" shows only while that
+           switch is on in js/config.js; data-if="!specialists" etc. is the wording used when it's off. -->
       <h1 class="hero__title">
         <span class="line"><span style="--d:1">Dentistry that</span></span>
         <span class="line"><span style="--d:2">feels <em>gentle</em>,</span></span>
@@ -151,7 +153,7 @@
       </h1>
 
       <p class="hero__lead load-in" style="--d:4">
-        Specialist-led dental care for your whole family. We explain every
+        <span data-if="specialists">Specialist-led</span><span data-if="!specialists">Personal, unhurried</span> dental care for your whole family. We explain every
         step, make sure you are comfortable throughout, and give you a written
         estimate before treatment begins.
       </p>
@@ -167,7 +169,8 @@
         <!-- EDIT: keep this factual; ratings and testimonials are discouraged by the dental code of ethics -->
         <div class="proof proof--reg">
           <span class="proof__icon"><svg><use href="#i-shield"/></svg></span>
-          <p><strong>MDS specialists</strong>Registered with the Tamil Nadu Dental Council</p>
+          <p data-if="specialists"><strong>MDS specialists</strong>Registered with the Tamil Nadu Dental Council</p>
+          <p data-if="!specialists"><strong>Qualified dental surgeon</strong>Registered with the Tamil Nadu Dental Council</p>
         </div>
         <span class="proof__rule" aria-hidden="true"></span>
         <ul class="proof__ticks">
@@ -247,8 +250,8 @@
         advice, and a team that never makes you feel rushed or judged.
       </p>
       <p class="reveal">
-        Each treatment is planned by a dentist qualified in that speciality,
-        using digital X-rays and scans that we show and explain to you. You
+        <span data-if="specialists">Each treatment is planned by a dentist qualified in that speciality</span><span data-if="!specialists">Your dentist plans every treatment personally</span>,
+        using <span data-if="equipment">digital X-rays and scans</span><span data-if="!equipment">X-rays</span> that we show and explain to you. You
         receive a written treatment plan with options and costs, and the
         decision is always yours.
       </p>
@@ -257,8 +260,10 @@
       <dl class="stats reveal">
         <div><dt><span data-count="14">14</span>+</dt><dd>Years in practice</dd></div>
         <div><dt><span data-count="7">7</span></dt><dd>Days a week</dd></div>
-        <div><dt><span data-count="4">4</span></dt><dd>Treatment rooms</dd></div>
-        <div><dt><span data-count="6">6</span></dt><dd>Specialist dentists (MDS)</dd></div>
+        <div data-if="specialists"><dt><span data-count="4">4</span></dt><dd>Treatment rooms</dd></div>
+        <div data-if="specialists"><dt><span data-count="6">6</span></dt><dd>Specialist dentists (MDS)</dd></div>
+        <div data-if="!specialists"><dt><span data-count="1">1</span></dt><dd>Dentist who sees you every visit</dd></div>
+        <div data-if="!specialists"><dt><span data-count="30">30</span></dt><dd>Minutes for your first consultation</dd></div>
       </dl>
     </div>
   </div>
@@ -273,70 +278,73 @@
         <h2 class="h2 reveal">Complete dental care, <em>under one roof.</em></h2>
       </div>
       <p class="section-head__aside reveal">
-        From routine check-ups to full mouth rehabilitation, each treatment is
-        carried out by the appropriate specialist. Fees shown are indicative
-        starting fees; you will receive an exact estimate after your
-        consultation.
+        From routine check-ups to full mouth rehabilitation, <span data-if="specialists">each treatment is
+        carried out by the appropriate specialist.</span><span data-if="!specialists">every treatment is
+        explained and planned with you first.</span>
+        <span data-if="prices">Fees shown are indicative starting fees; you will receive an exact
+        estimate after your consultation.</span><span data-if="!prices">You will receive a written
+        estimate after your consultation.</span>
       </p>
     </div>
 
-    <!-- EDIT: services. Copy / delete a whole <article> to add or remove one. Fees are samples: use the clinic's real starting fees. -->
+    <!-- EDIT: services. Copy / delete a whole <article> to add or remove one. Fees are samples: use the clinic's real starting fees.
+         With prices: false in js/config.js, each data-price fee reads "Ask about fees" instead. -->
     <div class="services">
       <article class="service reveal" style="--i:0">
         <span class="service__icon"><svg><use href="#i-implant"/></svg></span>
         <h3>Dental Implants</h3>
-        <p>Fixed replacements for missing teeth that look and function like natural teeth, placed with digital planning.</p>
-        <footer><span>From <b>₹25,000</b></span><a href="#book" aria-label="Enquire about dental implants"><svg><use href="#i-arrow-ur"/></svg></a></footer>
+        <p>Fixed replacements for missing teeth that look and function like natural teeth, placed with <span data-if="equipment">digital planning</span><span data-if="!equipment">careful planning</span>.</p>
+        <footer><span data-price>From <b>₹25,000</b></span><a href="#book" aria-label="Enquire about dental implants"><svg><use href="#i-arrow-ur"/></svg></a></footer>
       </article>
 
       <article class="service service--tagged reveal" style="--i:1">
         <span class="service__tag">Popular</span>
         <span class="service__icon"><svg><use href="#i-aligner"/></svg></span>
         <h3>Clear Aligners</h3>
-        <p>Straighten your teeth discreetly without metal braces, with a 3D preview of the planned result before you begin.</p>
-        <footer><span>From <b>₹60,000</b></span><a href="#book" aria-label="Enquire about clear aligners"><svg><use href="#i-arrow-ur"/></svg></a></footer>
+        <p>Straighten your teeth discreetly without metal braces, with <span data-if="equipment">a 3D preview of the planned result</span><span data-if="!equipment">the expected result explained</span> before you begin.</p>
+        <footer><span data-price>From <b>₹60,000</b></span><a href="#book" aria-label="Enquire about clear aligners"><svg><use href="#i-arrow-ur"/></svg></a></footer>
       </article>
 
       <article class="service reveal" style="--i:2">
         <span class="service__icon"><svg><use href="#i-sparkle"/></svg></span>
         <h3>Smile Designing &amp; Veneers</h3>
         <p>Veneers and bonding to correct chipped, gapped or discoloured teeth, planned to suit your facial features.</p>
-        <footer><span>From <b>₹8,000</b> / tooth</span><a href="#book" aria-label="Enquire about smile designing and veneers"><svg><use href="#i-arrow-ur"/></svg></a></footer>
+        <footer><span data-price>From <b>₹8,000</b> / tooth</span><a href="#book" aria-label="Enquire about smile designing and veneers"><svg><use href="#i-arrow-ur"/></svg></a></footer>
       </article>
 
       <article class="service reveal" style="--i:3">
         <span class="service__icon"><svg><use href="#i-root"/></svg></span>
         <h3>Root Canal Treatment (RCT)</h3>
-        <p>Saves an infected tooth under local anaesthesia, using a dental microscope. Often completed in a single sitting.</p>
-        <footer><span>From <b>₹4,500</b></span><a href="#book" aria-label="Enquire about root canal treatment (RCT)"><svg><use href="#i-arrow-ur"/></svg></a></footer>
+        <p>Saves an infected tooth under local anaesthesia<span data-if="equipment">, using a dental microscope</span>. Often completed in a single sitting.</p>
+        <footer><span data-price>From <b>₹4,500</b></span><a href="#book" aria-label="Enquire about root canal treatment (RCT)"><svg><use href="#i-arrow-ur"/></svg></a></footer>
       </article>
 
       <article class="service reveal" style="--i:4">
         <span class="service__icon"><svg><use href="#i-sun"/></svg></span>
         <h3>Teeth Whitening</h3>
         <p>In-clinic whitening in a single sitting, with options suited to sensitive teeth. Results vary from person to person.</p>
-        <footer><span>From <b>₹6,000</b></span><a href="#book" aria-label="Enquire about teeth whitening"><svg><use href="#i-arrow-ur"/></svg></a></footer>
+        <footer><span data-price>From <b>₹6,000</b></span><a href="#book" aria-label="Enquire about teeth whitening"><svg><use href="#i-arrow-ur"/></svg></a></footer>
       </article>
 
       <article class="service reveal" style="--i:5">
         <span class="service__icon"><svg><use href="#i-kid"/></svg></span>
         <h3>Kids Dentistry</h3>
-        <p>Gentle care from our paediatric dentist in a child-friendly room, starting with a relaxed first visit.</p>
-        <footer><span>From <b>₹500</b></span><a href="#book" aria-label="Enquire about kids dentistry"><svg><use href="#i-arrow-ur"/></svg></a></footer>
+        <p><span data-if="specialists">Gentle care from our paediatric dentist in a child-friendly room</span><span data-if="!specialists">Gentle, patient care for children in a friendly setting</span>, starting with a relaxed first visit.</p>
+        <footer><span data-price>From <b>₹500</b></span><a href="#book" aria-label="Enquire about kids dentistry"><svg><use href="#i-arrow-ur"/></svg></a></footer>
       </article>
 
       <article class="service reveal" style="--i:6">
         <span class="service__icon"><svg><use href="#i-crown"/></svg></span>
         <h3>Crowns &amp; Bridges</h3>
-        <p>Metal-free zirconia crowns (caps) and bridges, digitally designed and shade-matched to your natural teeth.</p>
-        <footer><span>From <b>₹5,000</b></span><a href="#book" aria-label="Enquire about crowns and bridges"><svg><use href="#i-arrow-ur"/></svg></a></footer>
+        <p>Metal-free zirconia crowns (caps) and bridges, <span data-if="equipment">digitally designed and </span>shade-matched to your natural teeth.</p>
+        <footer><span data-price>From <b>₹5,000</b></span><a href="#book" aria-label="Enquire about crowns and bridges"><svg><use href="#i-arrow-ur"/></svg></a></footer>
       </article>
 
       <article class="service reveal" style="--i:7">
         <span class="service__icon"><svg><use href="#i-shield"/></svg></span>
         <h3>Teeth Cleaning &amp; Gum Treatment</h3>
         <p>Scaling, polishing and gum treatment to manage bleeding gums and bad breath, and to prevent future problems.</p>
-        <footer><span>From <b>₹1,200</b></span><a href="#book" aria-label="Enquire about teeth cleaning and gum treatment"><svg><use href="#i-arrow-ur"/></svg></a></footer>
+        <footer><span data-price>From <b>₹1,200</b></span><a href="#book" aria-label="Enquire about teeth cleaning and gum treatment"><svg><use href="#i-arrow-ur"/></svg></a></footer>
       </article>
     </div>
   </div>
@@ -355,7 +363,7 @@
       <figure class="approach__img reveal">
         <!-- EDIT: technology / clinic photo -->
         <img src="https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?auto=format&fit=crop&w=900&h=620&q=75" alt="Digital dental scan displayed on a tablet" loading="lazy" width="900" height="620">
-        <figcaption><svg><use href="#i-scan"/></svg> Digital intraoral scans instead of impression trays</figcaption>
+        <figcaption><svg><use href="#i-scan"/></svg> <span data-if="equipment">Digital intraoral scans instead of impression trays</span><span data-if="!equipment">Every finding explained before treatment</span></figcaption>
       </figure>
     </div>
 
@@ -365,7 +373,7 @@
         <span class="promise__no">01</span>
         <div>
           <h3>Your comfort comes first</h3>
-          <p>Numbing gel before injections, computer-controlled local anaesthesia, and conscious sedation options for anxious patients.</p>
+          <p>Numbing gel before injections, <span data-if="equipment">computer-controlled local anaesthesia, and conscious sedation options</span><span data-if="!equipment">gentle local anaesthesia, and extra time</span> for anxious patients.</p>
         </div>
       </li>
       <li class="promise reveal" style="--i:1">
@@ -379,14 +387,21 @@
         <span class="promise__no">03</span>
         <div>
           <h3>Strict sterilisation</h3>
-          <p>Instruments sterilised in a Class B autoclave after every patient, single-use consumables, and sealed pouches opened in front of you.</p>
+          <p>Instruments sterilised<span data-if="equipment"> in a Class B autoclave</span> after every patient, single-use consumables, and sealed pouches opened in front of you.</p>
         </div>
       </li>
-      <li class="promise reveal" style="--i:3">
+      <li class="promise reveal" style="--i:3" data-if="specialists">
         <span class="promise__no">04</span>
         <div>
           <h3>The right specialist for each treatment</h3>
           <p>Implants by a prosthodontist, braces and aligners by an orthodontist, and children's treatment by a paediatric dentist.</p>
+        </div>
+      </li>
+      <li class="promise reveal" style="--i:3" data-if="!specialists">
+        <span class="promise__no">04</span>
+        <div>
+          <h3>The same dentist at every visit</h3>
+          <p>Your dentist knows your history and your concerns, from your first consultation to every follow-up visit.</p>
         </div>
       </li>
     </ol>
@@ -398,13 +413,13 @@
   <div class="container results__grid">
     <div class="results__copy">
       <p class="eyebrow reveal">Smile designing</p>
-      <h2 class="h2 reveal">A natural smile, <em>planned digitally.</em></h2>
+      <h2 class="h2 reveal">A natural smile, <em data-if="equipment">planned digitally.</em><em data-if="!equipment">planned with care.</em></h2>
       <p class="lead reveal">
         Every smile is planned around the individual: tooth shape, shade and
         facial features, so the result looks natural rather than uniform.
       </p>
       <ul class="ticks reveal">
-        <li><svg><use href="#i-check"/></svg> Digital smile preview before treatment begins</li>
+        <li><svg><use href="#i-check"/></svg> <span data-if="equipment">Digital smile preview before treatment begins</span><span data-if="!equipment">Your smile goals discussed before treatment begins</span></li>
         <li><svg><use href="#i-check"/></svg> Shade and shape chosen together with you</li>
         <li><svg><use href="#i-check"/></svg> Minimally invasive techniques that preserve natural teeth</li>
       </ul>
@@ -426,32 +441,38 @@
   <div class="container">
     <div class="section-head">
       <div>
-        <p class="eyebrow reveal">Meet your doctors</p>
-        <h2 class="h2 reveal">Experienced specialists who take time to <em>listen.</em></h2>
+        <p class="eyebrow reveal"><span data-if="specialists">Meet your doctors</span><span data-if="!specialists">Meet your dentist</span></p>
+        <h2 class="h2 reveal"><span data-if="specialists">Experienced specialists who take time to <em>listen.</em></span><span data-if="!specialists">An experienced dentist who takes time to <em>listen.</em></span></h2>
       </div>
-      <p class="section-head__aside reveal">
+      <p class="section-head__aside reveal" data-if="specialists">
         Our dentists hold postgraduate (MDS) qualifications in their
         specialities and are registered with the Tamil Nadu Dental Council.
         Each of us attends continuing dental education every year.
       </p>
+      <p class="section-head__aside reveal" data-if="!specialists">
+        Your dentist is registered with the Tamil Nadu Dental Council and
+        attends continuing dental education every year, so your care stays
+        up to date.
+      </p>
     </div>
 
     <!-- EDIT: doctors (photo about 700 × 880, name, degrees, speciality, years, a factual line on special interests).
-         Use "Specialist" / "Orthodontist" etc. only for dentists with the matching MDS. -->
+         Use "Specialist" / "Orthodontist" etc. only for dentists with the matching MDS.
+         With specialists: false in js/config.js only the first card shows, using its data-if="!specialists" lines. -->
     <div class="doctors">
       <article class="doctor reveal" style="--i:0">
         <figure>
           <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&crop=faces&w=700&h=880&q=75" alt="Portrait of Dr. Ananya Krishnan" loading="lazy" width="700" height="880">
-          <figcaption>Special interest: dental implants and full mouth rehabilitation.</figcaption>
+          <figcaption data-site="doctorNote">Special interest: dental implants and full mouth rehabilitation.</figcaption>
         </figure>
         <div class="doctor__body">
-          <h3>Dr. Ananya Krishnan</h3>
-          <p class="doctor__role">Founder · Prosthodontist</p>
-          <p class="doctor__meta">BDS, MDS (Prosthodontics) · 14 years</p>
+          <h3 data-site="doctorName">Dr. Ananya Krishnan</h3>
+          <p class="doctor__role"><span data-if="specialists">Founder · Prosthodontist</span><span data-if="!specialists">Founder · Dental Surgeon</span></p>
+          <p class="doctor__meta" data-site="doctorQualification"><span data-if="specialists">BDS, MDS (Prosthodontics) · 14 years</span><span data-if="!specialists">BDS · 14 years</span></p>
         </div>
       </article>
 
-      <article class="doctor reveal" style="--i:1">
+      <article class="doctor reveal" style="--i:1" data-if="specialists">
         <figure>
           <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&crop=faces&w=700&h=880&q=75" alt="Portrait of Dr. Arjun Menon" loading="lazy" width="700" height="880">
           <figcaption>Special interest: clear aligners and orthodontics for teens and adults.</figcaption>
@@ -463,7 +484,7 @@
         </div>
       </article>
 
-      <article class="doctor reveal" style="--i:2">
+      <article class="doctor reveal" style="--i:2" data-if="specialists">
         <figure>
           <img src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&crop=faces&w=700&h=880&q=75" alt="Portrait of Dr. Meera Iyer" loading="lazy" width="700" height="880">
           <figcaption>Special interest: preventive care and treating anxious children.</figcaption>
@@ -499,13 +520,13 @@
       <li class="step reveal">
         <span class="step__dot">2</span>
         <h3>Consultation &amp; examination</h3>
-        <p>A detailed discussion of your concerns, a complete oral examination, and digital X-rays or a 3D scan if required.</p>
+        <p>A detailed discussion of your concerns, a complete oral examination, and <span data-if="equipment">digital X-rays or a 3D scan</span><span data-if="!equipment">X-rays</span> if required.</p>
         <small>About 30 minutes</small>
       </li>
       <li class="step reveal">
         <span class="step__dot">3</span>
         <h3>Your treatment plan</h3>
-        <p>We explain our findings on screen and give you a written plan with treatment options, number of sittings and costs.</p>
+        <p>We explain our findings<span data-if="equipment"> on screen</span> and give you a written plan with treatment options, number of sittings and costs.</p>
         <small>No obligation</small>
       </li>
       <li class="step reveal">
@@ -567,15 +588,15 @@
     <div class="faq reveal" data-faq>
       <div class="faq__item is-open">
         <button type="button" class="faq__q" aria-expanded="true">Is root canal treatment painful?<span><svg><use href="#i-plus"/></svg></span></button>
-        <div class="faq__a"><div><p>Root canal treatment is done under local anaesthesia, so most patients find it similar to having a filling. We apply a numbing gel before the injection and use computer-controlled anaesthesia. If you are anxious, ask us about conscious sedation.</p></div></div>
+        <div class="faq__a"><div><p>Root canal treatment is done under local anaesthesia, so most patients find it similar to having a filling. We apply a numbing gel before the injection<span data-if="equipment"> and use computer-controlled anaesthesia</span>. If you are anxious, <span data-if="equipment">ask us about conscious sedation</span><span data-if="!equipment">tell us and we will go at your pace</span>.</p></div></div>
       </div>
-      <div class="faq__item">
+      <div class="faq__item" data-if="prices">
         <button type="button" class="faq__q" aria-expanded="false">What is the consultation fee?<span><svg><use href="#i-plus"/></svg></span></button>
         <div class="faq__a"><div><p>The consultation fee is ₹300 and includes a complete oral examination and a written treatment plan. If you begin treatment on the same day, the fee is adjusted in your bill.</p></div></div>
       </div>
       <div class="faq__item">
         <button type="button" class="faq__q" aria-expanded="false">Do you offer EMI or accept dental insurance?<span><svg><use href="#i-plus"/></svg></span></button>
-        <div class="faq__a"><div><p>Yes. No-cost EMI is available on treatments above ₹15,000 through our finance partners. Most health insurance policies do not cover routine dental treatment; if yours does, our front office will help you with the claim.</p></div></div>
+        <div class="faq__a"><div><p>Yes. No-cost EMI is available<span data-if="prices"> on treatments above ₹15,000</span> through our finance partners. Most health insurance policies do not cover routine dental treatment; if yours does, our front office will help you with the claim.</p></div></div>
       </div>
       <div class="faq__item">
         <button type="button" class="faq__q" aria-expanded="false">Can I get an emergency appointment for tooth pain?<span><svg><use href="#i-plus"/></svg></span></button>
@@ -710,7 +731,7 @@
           <span class="logo__mark"><svg><use href="#i-tooth"/></svg></span>
           <span class="logo__text notranslate" translate="no"><strong data-site="name">Ivory Lane</strong><small data-site="suffix">Dental Studio</small></span>
         </a>
-        <p>Specialist-led dental care for the whole family in <span data-site="area">Anna Nagar</span>, <span data-site="city">Chennai</span>. Clear advice, transparent fees and a caring team.</p>
+        <p><span data-if="specialists">Specialist-led</span><span data-if="!specialists">Personal</span> dental care for the whole family in <span data-site-row><span data-site="area">Anna Nagar</span>, </span><span data-site="city">Chennai</span>. Clear advice, transparent fees and a caring team.</p>
         <div class="socials" data-socials>
           <a data-social="instagram" href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg><use href="#i-instagram"/></svg></a>
           <a data-social="facebook" href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg><use href="#i-facebook"/></svg></a>
@@ -731,7 +752,7 @@
       <nav aria-label="Clinic">
         <h4>Clinic</h4>
         <a href="#about">About us</a>
-        <a href="#doctors">Our doctors</a>
+        <a href="#doctors"><span data-if="specialists">Our doctors</span><span data-if="!specialists">Our dentist</span></a>
         <a href="#reviews">Patient reviews</a>
         <a href="#visit">Your first visit</a>
         <a href="#faq">FAQs</a>
@@ -779,6 +800,7 @@
 <div id="google_translate_element" hidden></div>
 
 <script src="js/config.js"></script>
+<script src="js/demo.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

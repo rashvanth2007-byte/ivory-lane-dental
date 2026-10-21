@@ -15,6 +15,8 @@ One file controls everything that repeats across the page:
 | `name`, `suffix`, `legalName` | Logo, footer, copyright line |
 | `theme` | Colour scheme: `lagoon`, `sapphire`, `plum` or `forest` |
 | `showThemeSwitcher` | The small colour picker for live demos. **Set to `false` before going live.** |
+| `demoLinks` | Lets demo links fill in a prospective client's details (see "Demo links" below). **Set to `false` before going live.** |
+| `features` | Switch the page's claims on or off: `specialists` (a team of MDS specialists; `false` = one dentist), `equipment` (microscope, 3D scans, Class B autoclave, sedation) and `prices` (the "From ₹…" fees and the consultation fee). See "Fitting the clinic" below. |
 | `phone`, `phoneRaw`, `whatsapp`, `email` | Every call, WhatsApp and email link |
 | `addressLine1/2`, `landmark`, `mapQuery` | Address block, Google Map and "Get directions" |
 | `hours` | Hours table and the live "Open now / Closed now" status |
@@ -33,6 +35,38 @@ Search for `EDIT:` to jump to each block:
 - The four promises, the first-visit steps, FAQs and payment options
 - Doctors: photo, name, degrees, speciality, years and a factual special-interest line
 - The hero's factual trust line ("MDS specialists, registered with the Tamil Nadu Dental Council")
+
+### Fitting the clinic: specialists, equipment and prices
+
+The sample describes a large clinic with MDS specialists, advanced equipment and published fees. For a smaller clinic, turn off whatever isn't true in `features` in `js/config.js`:
+
+```js
+features: { specialists: false, equipment: false, prices: false }
+```
+
+- **`specialists: false`** (single-dentist clinic): "Specialist-led" becomes "Personal, unhurried" dental care, the trust line reads "Qualified dental surgeon", the doctors section becomes "Meet your dentist" with only the first card (centred), the specialist numbers are replaced with "1 dentist who sees you every visit" and "30 minutes for your first consultation", and the fourth promise becomes "The same dentist at every visit".
+- **`equipment: false`**: mentions of the dental microscope, digital and 3D scans, computer-controlled anaesthesia, sedation and the Class B autoclave are taken out or replaced with plain wording.
+- **`prices: false`**: each treatment shows "Ask about fees" instead of a starting fee, and the consultation-fee FAQ is hidden.
+
+In `index.html`, wording marked `data-if="specialists"` shows only while that switch is on, and `data-if="!specialists"` is the wording used when it is off (the same for `equipment` and `prices`). Edit both versions, or delete the one you don't need.
+
+### Demo links: show a clinic its own name
+
+While `demoLinks` is `true`, adding details to the address shows the site with a prospective client's name, without editing any file:
+
+```
+https://rashvanth2007-byte.github.io/ivory-lane-dental/?name=Sree's+Smile+Care&town=Rasipuram&phone=08523990979&specialists=0
+```
+
+The easy way is **`demo.html`** (for example `https://rashvanth2007-byte.github.io/ivory-lane-dental/demo.html`): type the clinic's name, town and phone, choose single dentist or specialists, equipment, prices and a colour, then open the demo, copy the link, send it on WhatsApp, or let the doctor scan the QR code.
+
+The links and QR code always point at the live site, even when `demo.html` is opened from your own computer, so they open on any phone. If the template moves to another address, change `LIVE_SITE` near the end of `demo.html`. The QR code is drawn by a copy of qrcode-generator in `js/vendor/`, so it doesn't depend on another server.
+
+A demo link changes the logo, page title, footer, copyright, privacy and terms pages, the hero location, the address block and the map (which searches for the clinic on Google Maps), and the "Read Reviews on Google" button. With a phone number, the Call and WhatsApp buttons and the booking form reach the clinic itself, so the doctor can try them. The sample email and landmark are hidden. With a dentist's name, the first doctor card shows that name and their qualification (if given), and the sample "special interest" line is removed.
+
+Photos, the other doctors, fees and numbers stay as samples, so the demo shows a small "Preview for … · sample photos and details" note at the top and asks search engines not to index it. Say clearly that it is a sample when you show it.
+
+All the link options are listed at the top of `js/demo.js`.
 
 ### 3. Photos
 
@@ -64,7 +98,8 @@ Translation is done by Google Translate, so it is machine quality and needs an i
 
 ## Before going live
 
-- [ ] `showThemeSwitcher: false` in `js/config.js`
+- [ ] `showThemeSwitcher: false` and `demoLinks: false` in `js/config.js` (with demo links on, anyone could make a link that shows a different phone number on the clinic's own site)
+- [ ] `features` in `js/config.js` matches the clinic (specialists, equipment, prices), and `demo.html` deleted from the client's copy
 - [ ] `social.google` in `js/config.js` points at the clinic's Google Business profile (the site links to reviews there instead of showing testimonials or ratings)
 - [ ] Sample doctors, prices, statistics and the "Since 2011" stamp replaced; doctors' degrees shown exactly as awarded, and "Specialist" / "Orthodontist" used only for dentists with that MDS
 - [ ] All stock photos replaced with the client's own
@@ -84,7 +119,10 @@ index.html        page structure and content
 css/styles.css    design tokens, layout, animation
 js/config.js      client details (edit this first)
 js/main.js        behaviour (rarely needs editing)
+js/demo.js        demo links (only while demoLinks is true)
 js/legal.js       fills clinic details into the two legal pages
+demo.html         demo link maker, for you (not linked from the site)
+js/vendor/        QR code library used by demo.html (MIT licence)
 privacy.html      sample privacy policy
 terms.html        sample terms of use
 assets/img/       put client photos here

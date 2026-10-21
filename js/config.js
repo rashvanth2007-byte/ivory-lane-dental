@@ -3,7 +3,8 @@
    Everything here is filled into the page automatically (name, phone,
    WhatsApp, address, hours, map, colours). Longer content such as
    services, doctors, reviews and FAQs lives in index.html and is marked
-   with "EDIT:" comments.
+   with "EDIT:" comments. Switch claims that don't fit the clinic off
+   under "features" below.
    ════════════════════════════════════════════════════════════════════════ */
 window.SITE = {
   /* ── Brand ── */
@@ -21,6 +22,22 @@ window.SITE = {
   /* Shows a small colour picker so you can preview themes live while
      pitching to a client. Set to false before the site goes live. */
   showThemeSwitcher: true,
+
+  /* Lets a link such as index.html?name=Sri+Saai&town=Rasipuram show the
+     site with a prospective client's details, for a demo (make these links
+     with demo.html). Set to false before the site goes live. */
+  demoLinks: true,
+
+  /* ── What the page claims ──
+     Turn off anything that isn't true for this clinic. The page then uses
+     the alternative wording written next to it in index.html (look for
+     data-if="specialists" and so on). For a single-dentist clinic, set
+     specialists: false and edit the one remaining doctor card. */
+  features: {
+    specialists: true,  // a team of MDS specialists; false = one dentist ("Meet your dentist")
+    equipment: true,    // named equipment: microscope, 3D/intraoral scans, Class B autoclave, sedation
+    prices: true        // "From ₹…" fees on treatments and the consultation fee in the FAQs
+  },
 
   /* ── Contact ── */
   phone: "+91 98765 43210",           // shown on the page

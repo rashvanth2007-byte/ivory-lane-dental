@@ -11,7 +11,20 @@
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
-  /* ── 1. Fill in client details from config.js ───────────────────────── */
+  /* ── 1. What the page claims: "features" in config.js ───────────────── */
+  // data-if="prices" stays only while that switch is on, data-if="!prices" only while it's off
+  var features = SITE.features || {};
+  $$('[data-if]').forEach(function (el) {
+    var rule = el.getAttribute('data-if');
+    var wanted = rule.charAt(0) !== '!';
+    if ((features[rule.replace('!', '')] !== false) === wanted) el.removeAttribute('data-if');
+    else el.remove();
+  });
+  if (features.prices === false) $$('[data-price]').forEach(function (el) { el.textContent = 'Ask about fees'; });
+  var doctorList = $('.doctors');
+  if (doctorList) doctorList.classList.toggle('doctors--single', $$('.doctor', doctorList).length === 1);
+
+  /* ── 1b. Fill in client details from config.js ──────────────────────── */
   var waNumber = String(SITE.whatsapp || '').replace(/\D/g, ''); // "+91 98765 43210" → "919876543210"
   function waLink(text) {
     return 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(text || SITE.whatsappGreeting || '');
@@ -43,6 +56,11 @@
   });
   // icon-only call buttons get a name screen readers can announce
   $$('.header__phone').forEach(function (el) { if (SITE.phone) el.setAttribute('aria-label', 'Call ' + SITE.phone); });
+
+  // demo links can name the first doctor and pick their sample photo
+  var doctorImg = $('.doctor img');
+  if (doctorImg && SITE.doctorPhoto) doctorImg.setAttribute('src', SITE.doctorPhoto);
+  if (doctorImg && SITE.doctorName) doctorImg.setAttribute('alt', 'Portrait of ' + SITE.doctorName);
 
   var social = SITE.social || {};
   $$('[data-social]').forEach(function (el) {
@@ -429,6 +447,20 @@
   }, { passive: true });
   window.addEventListener('resize', onScroll);
   onScroll();
+
+  /* Large name in the footer: a long clinic name shrinks to fit on one line */
+  var footerWord = $('.footer__word');
+  function fitFooterWord() {
+    footerWord.style.removeProperty('--fit');
+    if (!footerWord.clientWidth) return; // not laid out (e.g. a background tab): leave it at full size
+    var ratio = footerWord.clientWidth / footerWord.scrollWidth;
+    if (ratio < 1) footerWord.style.setProperty('--fit', Math.max(0.3, ratio * 0.96).toFixed(3));
+  }
+  if (footerWord) {
+    fitFooterWord();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitFooterWord);
+    window.addEventListener('resize', fitFooterWord);
+  }
 
   /* Logo (and any other link to #top) scrolls back to the very top */
   $$('a[href="#top"]').forEach(function (a) {

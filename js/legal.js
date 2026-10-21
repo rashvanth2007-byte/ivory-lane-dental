@@ -7,9 +7,11 @@
   var theme = String(SITE.theme || '').toLowerCase();
   if (['lagoon', 'sapphire', 'plum', 'forest'].indexOf(theme) >= 0) document.documentElement.setAttribute('data-theme', theme);
 
+  // as on the main page, a detail set to "" removes what shows it (and its [data-site-row] wrapper)
   $$('[data-site]').forEach(function (el) {
-    var value = SITE[el.getAttribute('data-site')];
-    if (value) el.textContent = value;
+    var key = el.getAttribute('data-site');
+    if (SITE[key]) el.textContent = SITE[key];
+    else if (Object.prototype.hasOwnProperty.call(SITE, key) && (SITE[key] === '' || SITE[key] == null)) (el.closest('[data-site-row]') || el).remove();
   });
   var hrefs = {
     phone: SITE.phoneRaw && 'tel:' + SITE.phoneRaw,
