@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /demo.html
+
+Sitemap: https://rashvanth2007-byte.github.io/ivory-lane-dental/sitemap.xml
